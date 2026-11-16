@@ -57,42 +57,15 @@
       background-color: #221F30;
       color: #FFFFFF;
     }
-    /* High-opacity pastel banners (/45 to /95) are LIGHT backgrounds even in night mode -> dark #2B2523 text! */
-    body.night-mode [class*="bg-[#FBE39C]/"],
-    body.night-mode [class*="bg-[#D8ECE2]/"],
-    body.night-mode [class*="bg-[#E0F2FE]/"],
-    body.night-mode [class*="bg-[#F9D5D8]/"],
-    body.night-mode [class*="bg-[#EDE9FE]/"],
-    body.night-mode [class*="bg-[#FED7AA]/"] {
-      color: #2B2523 !important;
-    }
-    body.night-mode [class*="bg-[#FBE39C]/"] *,
-    body.night-mode [class*="bg-[#D8ECE2]/"] *,
-    body.night-mode [class*="bg-[#E0F2FE]/"] *,
-    body.night-mode [class*="bg-[#F9D5D8]/"] *,
-    body.night-mode [class*="bg-[#EDE9FE]/"] *,
-    body.night-mode [class*="bg-[#FED7AA]/"] * {
-      color: #2B2523;
-    }
-    body.night-mode [class*="bg-[#FBE39C]/"] [style*="color:var(--text-muted)"],
-    body.night-mode [class*="bg-[#D8ECE2]/"] [style*="color:var(--text-muted)"],
-    body.night-mode [class*="bg-[#E0F2FE]/"] [style*="color:var(--text-muted)"],
-    body.night-mode [class*="bg-[#F9D5D8]/"] [style*="color:var(--text-muted)"],
-    body.night-mode [class*="bg-[#EDE9FE]/"] [style*="color:var(--text-muted)"],
-    body.night-mode [class*="bg-[#FED7AA]/"] [style*="color:var(--text-muted)"] {
-      color: #4A403A !important;
-    }
-    /* Low-opacity hover/badge tints (/15, /20, /30) over dark remain dark -> white text */
+    /* Translucent pastel tints over dark mode remain dark -> keep text White! */
+    body.night-mode [class*="bg-[#FBE39C]/"]:not(.bg-white),
+    body.night-mode [class*="bg-[#D8ECE2]/"]:not(.bg-white),
+    body.night-mode [class*="bg-[#E0F2FE]/"]:not(.bg-white),
+    body.night-mode [class*="bg-[#F9D5D8]/"]:not(.bg-white),
+    body.night-mode [class*="bg-[#EDE9FE]/"]:not(.bg-white),
+    body.night-mode [class*="bg-[#FED7AA]/"]:not(.bg-white),
+    body.night-mode [class*="bg-amber-100/"],
     body.night-mode [class*="bg-rose-500/"] {
-      color: #FDA4AF !important;
-    }
-    /* Master Schedule light pastel/cream calendar blocks & day headers -> ALWAYS crisp #2B2523 text */
-    body.night-mode .sched-light-block,
-    body.night-mode .sched-light-block * {
-      color: #2B2523 !important;
-    }
-    body.night-mode .sched-light-block .bg-\[\#2B2523\],
-    body.night-mode .sched-light-block .bg-rose-600 {
       color: #FFFFFF !important;
     }
     /* Solid opaque light/pastel surfaces keep dark #2B2523 text */
@@ -6001,7 +5974,7 @@ ${liveContext}
                 <div class="overflow-x-auto room-scroll">
                   <div class="${isSingleDay ? 'min-w-[340px]' : 'min-w-[980px]'}">
                     <!-- Day Headers -->
-                    <div class="grid border-b-2 border-[#2B2523] bg-[#F4EDE0] sched-light-block" style="grid-template-columns: 64px repeat(${datesList.length}, minmax(0, 1fr));">
+                    <div class="grid border-b-2 border-[#2B2523] bg-[#F4EDE0]" style="grid-template-columns: 64px repeat(${datesList.length}, minmax(0, 1fr));">
                       <div class="p-2.5 text-center font-mono font-bold text-[11px] border-r border-[#2B2523]/30 flex flex-col justify-center">
                         <span>24H</span>
                         <span class="text-[9px] opacity-70">直向軸</span>
@@ -6080,14 +6053,7 @@ ${liveContext}
                                     <div class="space-y-0.5">
                                       <div class="flex items-center justify-between gap-1 text-[10px] font-mono font-bold leading-none opacity-85">
                                         <span>${it.time}–${it.endTime}</span>
-                                        ${
-      it.source === 'todo' ? `<button type="button" data-sched-done-todo="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="完成代辦並消失 (+15💡)">✓完成</button>`
-      : it.source === 'prj_task' ? `<button type="button" data-sched-done-ptask="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#FBE39C]" title="完成專案小任務並消失 (+20💡)">✓完成</button>`
-      : it.source === 'exam_review' ? `<button type="button" data-sched-done-exrev="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="完成本輪科學複習並消失 (+15💡)">✓完成</button>`
-      : it.source === 'exam' ? `<button type="button" data-sched-done-exam="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="考完結算並消失 (+35💡)">✓完成</button>`
-      : it.source === 'event' ? `<button type="button" data-sched-done-ev="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="標記完成並從日程表移除">✓完成</button>`
-      : ''
-    }
+                                        ${it.source === 'todo' ? `<button type="button" data-sched-done-todo="${it.rawId}" class="px-1 py-0.2 rounded bg-white/90 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="完成代辦 (+15💡)">✓完成</button>` : it.source === 'prj_task' ? `<button type="button" data-sched-done-ptask="${it.rawId}" class="px-1 py-0.2 rounded bg-white/90 border border-[#2B2523] text-[9px] font-bold hover:bg-[#FBE39C]" title="完成專案小任務 (+20💡)">✓完成</button>` : ''}
                                       </div>
                                       <div class="font-bold text-xs leading-snug break-words text-[#2B2523]">${esc(it.title)}</div>
                                       ${heightPx >= 52 && it.sub ? `<div class="text-[10px] leading-tight break-words opacity-80 text-[#2B2523]">${esc(it.sub)}</div>` : ''}
@@ -6285,9 +6251,6 @@ ${liveContext}
                         <div class="flex flex-wrap items-center gap-2 shrink-0">
                           ${item.source === 'todo' ? `<button type="button" data-sched-done-todo="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#06D6A0] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成結算並消失 (+15💡)</button>` : ''}
                           ${item.source === 'prj_task' ? `<button type="button" data-sched-done-ptask="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成專案小任務 (+20💡)</button><button type="button" data-open-prj="${item.rawId.split(':')[0]}" class="px-3 py-1.5 rounded-xl doodle-subtle font-bold text-xs">📂 進入該專案</button>` : ''}
-                          ${item.source === 'exam_review' ? `<button type="button" data-sched-done-exrev="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#06D6A0] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成複習並消失 (+15💡)</button>` : ''}
-                          ${item.source === 'exam' ? `<button type="button" data-sched-done-exam="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#06D6A0] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 考完結算並消失 (+35💡)</button>` : ''}
-                          ${item.source === 'event' ? `<button type="button" data-sched-done-ev="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#D8ECE2] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成並從日程表移除</button>` : ''}
                           ${item.editable ? `
                             <input type="date" data-mev-field="${item.rawId}:date" value="${item.date}" class="px-2 py-1 rounded-xl doodle-subtle text-xs font-bold" />
                             <input type="time" data-mev-field="${item.rawId}:time" value="${item.time}" class="px-2 py-1 rounded-xl doodle-subtle text-xs font-bold" />
@@ -9113,34 +9076,6 @@ ${esc(curExam.aiMethod || '')}</div>
         document.querySelectorAll('[data-sched-done-todo]').forEach(b => b.onclick = () => {
           const t = state.todos.find(x => x.id === b.dataset.schedDoneTodo);
           if (t) { settleCompletedItem(t.text, '一次性代辦完成結算', 15); state.todos = state.todos.filter(x => x.id !== t.id); saveState(); renderDedicatedPage(); bindEvents(); }
-        });
-        document.querySelectorAll('[data-sched-done-exrev]').forEach(b => b.onclick = () => {
-          const [eid, sid] = b.dataset.schedDoneExrev.split(':');
-          const ex = (state.exams || []).find(x => x.id === eid);
-          const rs = ex && (ex.reviewSessions || []).find(s => s.id === sid);
-          if (rs && !rs.done) {
-            rs.done = true;
-            rs.rewarded = true;
-            settleCompletedItem(`複習 ${ex.title}：${(rs.focus||'').slice(0,18)}`, '科學複習輪次完成', 15);
-            saveState(); renderDedicatedPage(); bindEvents();
-          }
-        });
-        document.querySelectorAll('[data-sched-done-exam]').forEach(b => b.onclick = () => {
-          const ex = (state.exams || []).find(x => x.id === b.dataset.schedDoneExam);
-          if (ex) {
-            settleCompletedItem(ex.title, `考試完成結算 (${ex.examType||'考試'})`, 35);
-            state.exams = (state.exams || []).filter(x => x.id !== ex.id);
-            if (state.selectedExamId === ex.id) state.selectedExamId = null;
-            saveState(); renderDedicatedPage(); bindEvents();
-          }
-        });
-        document.querySelectorAll('[data-sched-done-ev]').forEach(b => b.onclick = () => {
-          const ev = (state.scheduleEvents || []).find(x => x.id === b.dataset.schedDoneEv);
-          if (ev) {
-            settleCompletedItem(ev.title, '日程事件完成', 10);
-            state.scheduleEvents = (state.scheduleEvents || []).filter(x => x.id !== ev.id);
-            saveState(); renderDedicatedPage(); bindEvents();
-          }
         });
         document.querySelectorAll('[data-sched-done-proj]').forEach(b => b.onclick = () => {
           const p = state.projectSlides.find(x => x.id === b.dataset.schedDoneProj);
