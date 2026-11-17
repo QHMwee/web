@@ -32,9 +32,158 @@
       --bg-page: #181622;
       --bg-card: #221F30;
       --bg-subtle: #2D2940;
-      --text-main: #FAF6F0;
-      --text-muted: #B8B0C8;
+      --text-main: #FFFFFF;
+      --text-muted: #D4CCE6;
       --border-col: #8E84A8;
+      color: #FFFFFF;
+    }
+    /* Global Night-Mode: All dark surfaces use crisp White text */
+    body.night-mode .doodle-card,
+    body.night-mode .doodle-subtle,
+    body.night-mode header,
+    body.night-mode main,
+    body.night-mode section,
+    body.night-mode table,
+    body.night-mode th,
+    body.night-mode td {
+      color: #FFFFFF;
+    }
+    body.night-mode input,
+    body.night-mode textarea,
+    body.night-mode select {
+      color: #FFFFFF;
+    }
+    body.night-mode select option {
+      background-color: #221F30;
+      color: #FFFFFF;
+    }
+    /* High-opacity pastel banners (/45 to /95) are LIGHT backgrounds even in night mode -> dark #2B2523 text! */
+    body.night-mode [class*="bg-[#FBE39C]/"],
+    body.night-mode [class*="bg-[#D8ECE2]/"],
+    body.night-mode [class*="bg-[#E0F2FE]/"],
+    body.night-mode [class*="bg-[#F9D5D8]/"],
+    body.night-mode [class*="bg-[#EDE9FE]/"],
+    body.night-mode [class*="bg-[#FED7AA]/"] {
+      color: #2B2523 !important;
+    }
+    body.night-mode [class*="bg-[#FBE39C]/"] *,
+    body.night-mode [class*="bg-[#D8ECE2]/"] *,
+    body.night-mode [class*="bg-[#E0F2FE]/"] *,
+    body.night-mode [class*="bg-[#F9D5D8]/"] *,
+    body.night-mode [class*="bg-[#EDE9FE]/"] *,
+    body.night-mode [class*="bg-[#FED7AA]/"] * {
+      color: #2B2523;
+    }
+    body.night-mode [class*="bg-[#FBE39C]/"] [style*="color:var(--text-muted)"],
+    body.night-mode [class*="bg-[#D8ECE2]/"] [style*="color:var(--text-muted)"],
+    body.night-mode [class*="bg-[#E0F2FE]/"] [style*="color:var(--text-muted)"],
+    body.night-mode [class*="bg-[#F9D5D8]/"] [style*="color:var(--text-muted)"],
+    body.night-mode [class*="bg-[#EDE9FE]/"] [style*="color:var(--text-muted)"],
+    body.night-mode [class*="bg-[#FED7AA]/"] [style*="color:var(--text-muted)"] {
+      color: #4A403A !important;
+    }
+    /* Low-opacity hover/badge tints (/15, /20, /30) over dark remain dark -> white text */
+    body.night-mode [class*="bg-rose-500/"] {
+      color: #FDA4AF !important;
+    }
+    /* Master Schedule light pastel/cream calendar blocks & day headers -> ALWAYS crisp #2B2523 text */
+    body.night-mode .sched-light-block,
+    body.night-mode .sched-light-block * {
+      color: #2B2523 !important;
+    }
+    body.night-mode .sched-light-block .bg-\[\#2B2523\],
+    body.night-mode .sched-light-block .bg-rose-600 {
+      color: #FFFFFF !important;
+    }
+    /* Solid opaque light/pastel surfaces keep dark #2B2523 text */
+    body.night-mode .bg-white,
+    body.night-mode [class*="bg-white/8"],
+    body.night-mode [class*="bg-white/9"],
+    body.night-mode .bg-\[\#FFFDF8\],
+    body.night-mode .bg-\[\#FBE39C\],
+    body.night-mode .bg-\[\#D8ECE2\],
+    body.night-mode .bg-\[\#E0F2FE\],
+    body.night-mode .bg-\[\#F9D5D8\],
+    body.night-mode .bg-\[\#EDE9FE\],
+    body.night-mode .bg-\[\#FED7AA\],
+    body.night-mode .bg-\[\#06D6A0\],
+    body.night-mode .bg-\[\#BAE6FD\],
+    body.night-mode .bg-\[\#7DD3FC\],
+    body.night-mode .bg-emerald-50,
+    body.night-mode .bg-rose-100,
+    body.night-mode .bg-amber-100,
+    body.night-mode .bg-\\[\\#FBF7EE\\],
+    body.night-mode .bg-\\[\\#F4EDE0\\],
+    body.night-mode [style*="background-color"],
+    body.night-mode [style*="background-color"] *,
+    body.night-mode .bg-stone-200 {
+      color: #2B2523 !important;
+    }
+    body.night-mode .bg-white input,
+    body.night-mode .bg-white select,
+    body.night-mode .bg-white textarea,
+    body.night-mode .bg-\[\#FFFDF8\] input,
+    body.night-mode .bg-\[\#FFFDF8\] select,
+    body.night-mode .bg-\[\#FFFDF8\] textarea,
+    body.night-mode .bg-\[\#FBE39C\] input,
+    body.night-mode .bg-\[\#D8ECE2\] input,
+    body.night-mode .bg-\[\#E0F2FE\] input,
+    body.night-mode .bg-\[\#F9D5D8\] input,
+    body.night-mode .bg-\[\#EDE9FE\] input {
+      color: #2B2523 !important;
+    }
+    /* Override any hardcoded dark text classes on dark containers to White / Bright */
+    body.night-mode .text-\[\#2B2523\] {
+      color: #FFFFFF;
+    }
+    body.night-mode .bg-white .text-\[\#2B2523\],
+    body.night-mode .bg-\[\#FFFDF8\] .text-\[\#2B2523\],
+    body.night-mode .bg-\[\#FBE39C\] .text-\[\#2B2523\],
+    body.night-mode .bg-\[\#D8ECE2\] .text-\[\#2B2523\],
+    body.night-mode .bg-\[\#E0F2FE\] .text-\[\#2B2523\],
+    body.night-mode .bg-\[\#F9D5D8\] .text-\[\#2B2523\],
+    body.night-mode .bg-\[\#EDE9FE\] .text-\[\#2B2523\],
+    body.night-mode .bg-\[\#06D6A0\] .text-\[\#2B2523\] {
+      color: #2B2523 !important;
+    }
+    body.night-mode .doodle-card .text-emerald-800,
+    body.night-mode .doodle-card .text-emerald-900,
+    body.night-mode .doodle-card .text-emerald-700,
+    body.night-mode .doodle-subtle .text-emerald-800,
+    body.night-mode .doodle-subtle .text-emerald-900,
+    body.night-mode .doodle-subtle .text-emerald-700 {
+      color: #6EE7B7 !important;
+    }
+    body.night-mode .doodle-card .text-sky-900,
+    body.night-mode .doodle-subtle .text-sky-900 {
+      color: #7DD3FC !important;
+    }
+    body.night-mode .doodle-card .text-indigo-950,
+    body.night-mode .doodle-subtle .text-indigo-950 {
+      color: #DDD6FE !important;
+    }
+    body.night-mode .doodle-card .text-rose-800,
+    body.night-mode .doodle-card .text-rose-900,
+    body.night-mode .doodle-card .text-rose-700,
+    body.night-mode .doodle-card .text-rose-600,
+    body.night-mode .doodle-subtle .text-rose-800,
+    body.night-mode .doodle-subtle .text-rose-700,
+    body.night-mode .doodle-subtle .text-rose-600 {
+      color: #FDA4AF !important;
+    }
+    body.night-mode .doodle-card .text-amber-900,
+    body.night-mode .doodle-subtle .text-amber-900 {
+      color: #FDE68A !important;
+    }
+    body.night-mode .doodle-card .text-stone-600,
+    body.night-mode .doodle-subtle .text-stone-600,
+    body.night-mode .doodle-card .text-stone-700,
+    body.night-mode .doodle-subtle .text-stone-700 {
+      color: #E7E5E4 !important;
+    }
+    body.night-mode .bg-\[\#2B2523\],
+    body.night-mode .bg-rose-600 {
+      color: #FFFFFF !important;
     }
     html, body {
       max-width: 100%;
@@ -131,44 +280,30 @@
         <button id="overview-menu-btn" type="button" class="px-2.5 py-1 rounded-xl font-bold bg-[#FBE39C] text-[#2B2523] border-2 border-[#2B2523] flex items-center gap-1 whitespace-nowrap hover:bg-[#F9D5D8]">
           <span>📂 總覽選單</span><span>▾</span>
         </button>
-        <div id="overview-dropdown" class="hidden absolute left-0 mt-1.5 w-72 max-w-[90vw] rounded-2xl doodle-card p-1.5 z-50 space-y-0.5 text-xs max-h-[75vh] overflow-y-auto">
-          <div class="px-2.5 py-1 text-[10px] font-bold" style="color:var(--text-muted)">🏠 溫馨房間 & 🤖 AI 智慧書房管家（點擊切換專屬全頁）</div>
+        <div id="overview-dropdown" class="hidden absolute left-0 mt-1.5 w-80 max-w-[92vw] rounded-2xl doodle-card p-1.5 z-50 space-y-0.5 text-xs max-h-[75vh] overflow-y-auto">
+          <div class="px-2.5 py-1 text-[10px] font-bold" style="color:var(--text-muted)">🌟 全局核心中樞（AI 管家・總日程・小賣部）</div>
           <button type="button" data-jump="home:gemini_ai" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#EDE9FE]/90 hover:bg-[#EDE9FE] font-bold">🤖 Gemini AI 智慧書房管家（資料問答 × 預覽確認改動）</button>
-          <button type="button" data-jump="home:master_schedule" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#FBE39C]/40 hover:bg-amber-100/80 font-bold">🗓️ 全景總日程表（代辦・專案・課表・開會出遊・獎勵事件）</button>
-          <button type="button" data-jump="home:reward_shop" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#F9D5D8]/40 hover:bg-amber-100/80 font-bold">🏪 靈感小賣部 & 100% 自動結算殿堂</button>
-          <button type="button" data-jump="home:study" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📖 大一至大二上真實成績單・新增/修改</button>
-          <button type="button" data-jump="home:calendar" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📅 週期工作台（定時提醒代辦 × 每週習慣自動重置）</button>
-          <button type="button" data-jump="home:fridge" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🧊 每日三餐維生素紀錄 & 歷史資料庫</button>
-          <button type="button" data-jump="home:wallet" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">👛 韓系手帳理財中心（預算・記帳・存錢筒・固定收支）</button>
-          <button type="button" data-jump="home:body" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">⚖️ 減重目標 (59→50kg) 與飲水</button>
-          <button type="button" data-jump="home:music_focus" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📻 白噪音播放器 & 免費 Lo-fi 歌單</button>
-          <button type="button" data-jump="home:notifications" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🔔 裝置通知欄推播中心（電腦/平板/手機）</button>
-          <button type="button" data-jump="home:grad_goal" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🏆 研究所目標牆 & 系排第1里程碑</button>
+          <button type="button" data-jump="home:master_schedule" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#FBE39C]/50 hover:bg-amber-100/80 font-bold">🗓️ 全景總日程表（作業・考試複習・專案・課表・獎勵）</button>
+          <button type="button" data-jump="home:reward_shop" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#F9D5D8]/50 hover:bg-amber-100/80 font-bold">🏪 靈感小賣部 & 逾期扣點/100%結算中心</button>
+          <div class="border-t my-1" style="border-color: var(--border-col);"></div>
+          <div class="px-2.5 py-1 text-[10px] font-bold" style="color:var(--text-muted)">🏠 生活健康與日常作業</div>
+          <button type="button" data-jump="home:fridge" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#E0F2FE]/60 hover:bg-[#E0F2FE] font-bold">🍽️ 每日三餐 × 💧可愛水杯飲水 × ☕咖啡因整合中心</button>
+          <button type="button" data-jump="home:calendar" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📅 週期工作台（作業 & 日常活動代辦 × 習慣打卡）</button>
+          <button type="button" data-jump="home:wallet" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">👛 韓系手帳理財中心（多帳戶・預算・存錢筒）</button>
+          <button type="button" data-jump="home:body" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">⚖️ 減重體態管理 (59→50kg) & 運動紀錄</button>
           <button type="button" data-jump="home:bed" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🛏️ 床鋪睡眠計算（對比明日課表）</button>
-          <button type="button" data-jump="home:bike" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🚲 單車運動（自訂項目・消耗熱量）</button>
-          <button type="button" data-jump="home:clock_pomodoro" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🕰️ 牆上時鐘（番茄鐘專注倒數）</button>
-          <button type="button" data-jump="home:caffeine_tracker" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">☕ 桌上熱茶（咖啡因追蹤）</button>
-          <button type="button" data-jump="home:memory_wall" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🌿 牆上藤蔓照片（大學回憶＆閱讀書單）</button>
-          <button type="button" data-jump="home:cert_career" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🧳 貼紙行李箱（證照考證 & 實習履歷）</button>
-          <button type="button" data-jump="home:plant_mood" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🌼 花朵小熊＆茶壺（心情小確幸）</button>
+          <button type="button" data-jump="home:music_focus" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📻 白噪音播放器（雨聲/營火）& 番茄鐘</button>
+          <button type="button" data-jump="home:notifications" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🔔 跨裝置通知欄推播設定</button>
           <div class="border-t my-1" style="border-color: var(--border-col);"></div>
-          <div class="px-2.5 py-1 text-[10px] font-bold" style="color:var(--text-muted)">🏫 高科大電通教室（課表・提問單・硬體實驗・人脈）</div>
-          <button type="button" data-jump="school:schedule" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#D8ECE2]/40 hover:bg-amber-100/60 font-bold">📋 學期詳細課表管理（新增課程時段・同步總日程表）</button>
-          <button type="button" data-jump="school:office_hours" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🙋‍♀️ 找教授 Office Hours 四步驟提問準備單</button>
-          <button type="button" data-jump="school:lab_bench" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🔬 電工與數位邏輯硬體實驗工作台（腳位/預報/計算機）</button>
+          <div class="px-2.5 py-1 text-[10px] font-bold" style="color:var(--text-muted)">🏫 課業・考試複習・專題研究</div>
+          <button type="button" data-jump="library:exams" class="w-full text-left px-2.5 py-1.5 rounded-xl bg-[#D8ECE2]/70 hover:bg-[#D8ECE2] font-bold">📝 考試管理與 AI 科學化複習中心（小考/期中/證照）</button>
+          <button type="button" data-jump="school:project_slides" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🚀 專題與研究計畫深度追蹤（含加權任務 × 論文精讀）</button>
+          <button type="button" data-jump="school:schedule" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📋 學期詳細課表管理（同步總日程表）</button>
+          <button type="button" data-jump="home:study" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📖 成績單規劃中心 & 畢業 128 學分檢核</button>
+          <button type="button" data-jump="school:office_hours" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🙋‍♀️ 找教授 Office Hours 提問單 & 實驗工作台</button>
           <button type="button" data-jump="school:teachers" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🧑‍🏫 師長・同學・各界人脈資源圖鑑</button>
-          <button type="button" data-jump="school:project_slides" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🚀 專題與研究計畫深度追蹤中心（含加權小任務 × 時間統計 × 論文進度）</button>
-          <button type="button" data-jump="school:bag_checklist" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🎒 椅背書包（出門防呆必帶清單）</button>
-          <button type="button" data-jump="school:lab_grants" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📌 實驗室研究計畫（點擊進入專屬計畫工作台）</button>
-          <button type="button" data-jump="school:grad_audit" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🗄️ 教室置物櫃（畢業 128 學分檢核）</button>
-          <div class="border-t my-1" style="border-color: var(--border-col);"></div>
-          <div class="px-2.5 py-1 text-[10px] font-bold" style="color:var(--text-muted)">📚 圖書館自習室（論文文獻・計時・刷題・考研）</div>
-          <button type="button" data-jump="library:paper_endnote" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">📑 專案學術論文閱讀進度＆ EndNote 文獻庫（已併入各專案）</button>
-          <button type="button" data-jump="library:library_timer" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">⏱️ 圖書館看書計時 & 學習目標</button>
-          <button type="button" data-jump="library:coding_tracker" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">💻 圖書館筆電（CPE / 多益 65 天衝刺）</button>
-          <button type="button" data-jump="library:exam_bank" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🗂️ 考研書架＆地球儀（考古題追蹤）</button>
-          <button type="button" data-jump="library:burnout_check" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🛋️ 休息沙發與熱茶（壓力與補水提醒）</button>
-        </div>
+          <button type="button" data-jump="library:coding_tracker" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">💻 CPE 刷題技能樹 & 圖書館計時目標</button>
+          <button type="button" data-jump="home:grad_goal" class="w-full text-left px-2.5 py-1.5 rounded-xl hover:bg-amber-100/60 font-semibold">🏆 研究所目標牆・證照履歷 & 必帶書包清單</button></div>
       </div>
 
       <div class="hidden lg:flex items-center gap-1 p-0.5 rounded-xl doodle-subtle shrink-0">
@@ -181,6 +316,7 @@
     <div class="flex items-center gap-1.5 flex-wrap">
       <div id="live-world-clock" class="px-2 py-1 rounded-xl doodle-subtle font-mono font-bold text-[11px] whitespace-nowrap shrink-0">2026/11/13 (週五) 12:26:00</div>
       <button id="header-gemini-btn" type="button" class="px-2.5 py-1 rounded-xl bg-[#EDE9FE] text-[#2B2523] border-2 border-[#2B2523] font-bold whitespace-nowrap shrink-0" title="開啟 Gemini AI 智慧管家（可詢問任何事、連動修改資料並於確認後執行）">🤖 Gemini 助手 <span id="pending-ai-badge" class="hidden px-1.5 py-0.2 rounded-full bg-rose-600 text-white text-[10px]">0</span></button>
+      <button id="header-exams-btn" type="button" class="px-2.5 py-1 rounded-xl bg-[#F9D5D8] text-[#2B2523] border-2 border-[#2B2523] font-bold whitespace-nowrap shrink-0" title="開啟考試管理與 AI 科學化複習中心（小考/期中/期末/證照）">📝 考試複習</button>
       <button id="header-schedule-btn" type="button" class="px-2.5 py-1 rounded-xl bg-[#D8ECE2] text-[#2B2523] border-2 border-[#2B2523] font-bold whitespace-nowrap shrink-0" title="開啟全景總日程表（代辦/專案/課表/約會/獎勵）">🗓️ 總日程表</button>
       <button id="header-shop-btn" type="button" class="px-2.5 py-1 rounded-xl bg-[#FBE39C] text-[#2B2523] border-2 border-[#2B2523] font-bold whitespace-nowrap shrink-0" title="完成任務賺取靈感代幣，兌換看電影與放假獎勵">🏪 小賣部 <span id="token-badge-count">💡 0</span></button>
       <button id="cloud-sync-btn" type="button" class="px-2.5 py-1 rounded-xl bg-[#E0F2FE] text-[#2B2523] border-2 border-[#2B2523] font-bold whitespace-nowrap shrink-0" title="登入 Google 帳號開啟 Firebase 雲端即時同步">☁️ 雲端登入</button>
@@ -302,6 +438,16 @@
         return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`;
       }
 
+      function normDate(raw) {
+        const s = String(raw || '').trim();
+        if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+        const mFull = s.match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/);
+        if (mFull) return `${mFull[1]}-${String(mFull[2]).padStart(2,'0')}-${String(mFull[3]).padStart(2,'0')}`;
+        const m = s.match(/(\d{1,2})[\/-](\d{1,2})/);
+        if (m) return `${new Date().getFullYear()}-${String(m[1]).padStart(2,'0')}-${String(m[2]).padStart(2,'0')}`;
+        return getTodayISO();
+      }
+
       // Smart Estimator: Auto-generates recommended duration (mins) based on task title/category/priority, and computes exact completion time!
       function autoEstimateTodoMins(text, cat, priority) {
         const s = String((text || '') + ' ' + (cat || '')).toLowerCase();
@@ -388,19 +534,53 @@
       }
 
       const INITIAL_STATE = {
-  "scene": "school",
-  "viewMode": "page",
-  "lighting": "day",
+  "scene": "home",
+  "viewMode": "scene",
+  "lighting": "night",
   "showHints": false,
-  "activePage": "lab_grants",
+  "activePage": null,
   "studySubTab": "overview",
   "walletSubTab": "overview",
   "fridgeSubTab": "today",
   "peopleSubTab": "teachers",
   "peopleSearch": "",
-  "currentWeekMonday": "2026-11-09",
-  "currentDietDate": "2026-11-14",
-  "weeklyHistory": [],
+  "currentWeekMonday": "2026-11-16",
+  "currentDietDate": "2026-11-17",
+  "weeklyHistory": [
+    {
+      "weekMonday": "2026-11-09",
+      "completedChecks": 1,
+      "targetChecks": 5,
+      "ratePct": 20,
+      "habitsSnapshot": [
+        {
+          "name": "💧 喝滿 2500ml 溫開水",
+          "doneCount": 0,
+          "target": 1
+        },
+        {
+          "name": "🥩 每日熱量 ≤ 1345 kcal & 蛋白 110g",
+          "doneCount": 0,
+          "target": 1
+        },
+        {
+          "name": "💻 刷 1 題 Cpe",
+          "doneCount": 0,
+          "target": 1
+        },
+        {
+          "name": "🚲 30 分鐘飛輪有氧 / 伸展運動",
+          "doneCount": 0,
+          "target": 1
+        },
+        {
+          "name": "🌙 00:30 前放下手機準時就寢",
+          "doneCount": 1,
+          "target": 1
+        }
+      ]
+    }
+  ],
   "monthlyBudget": 8500,
   "caffeineCups": 1,
   "caffeineLimitMg": 200,
@@ -656,6 +836,81 @@
   },
   "notifLogs": [
     {
+      "time": "00:25",
+      "title": "💧 喝水提醒！",
+      "body": "目前飲水 1750 / 2500 ml，快喝一杯 250ml 吧！"
+    },
+    {
+      "time": "00:15",
+      "title": "✨ 本週習慣打卡提醒 (00:15)",
+      "body": "今天還沒打卡「🌙 00:30 前放下手機準時就寢」喔！完成後記得打勾！"
+    },
+    {
+      "time": "00:00",
+      "title": "🌙 準備睡覺囉！",
+      "body": "點擊床鋪可對比明日第一堂課計算睡眠時數。"
+    },
+    {
+      "time": "15:00",
+      "title": "✨ 本週習慣打卡提醒 (15:00)",
+      "body": "今天還沒打卡「💧 喝滿 2500ml 溫開水」喔！完成後記得打勾！"
+    },
+    {
+      "time": "14:56",
+      "title": "💧 喝水提醒！",
+      "body": "目前飲水 1750 / 2500 ml，快喝一杯 250ml 吧！"
+    },
+    {
+      "time": "13:09",
+      "title": "🎉 100% 完成結算！獲得 +15 💡靈感代幣",
+      "body": "已完成「英文 speaking」（一次性代辦完成結算），可至小賣部兌換獎勵！"
+    },
+    {
+      "time": "13:03",
+      "title": "🎉 100% 完成結算！獲得 +15 💡靈感代幣",
+      "body": "已完成「海科計畫 完整摘要完成」（一次性代辦完成結算），可至小賣部兌換獎勵！"
+    },
+    {
+      "time": "12:53",
+      "title": "💧 喝水提醒！",
+      "body": "目前飲水 1750 / 2500 ml，快喝一杯 250ml 吧！"
+    },
+    {
+      "time": "09:57",
+      "title": "💧 喝水提醒！",
+      "body": "目前飲水 1750 / 2500 ml，快喝一杯 250ml 吧！"
+    },
+    {
+      "time": "18:13",
+      "title": "💧 喝水提醒！",
+      "body": "目前飲水 1750 / 2500 ml，快喝一杯 250ml 吧！"
+    },
+    {
+      "time": "01:36",
+      "title": "🎉 100% 完成結算！獲得 +15 💡靈感代幣",
+      "body": "已完成「線性代數 第四次小考 練習」（一次性代辦完成結算），可至小賣部兌換獎勵！"
+    },
+    {
+      "time": "00:50",
+      "title": "💧 喝水提醒！",
+      "body": "目前飲水 1750 / 2500 ml，快喝一杯 250ml 吧！"
+    },
+    {
+      "time": "00:15",
+      "title": "✨ 本週習慣打卡提醒 (00:15)",
+      "body": "今天還沒打卡「🌙 00:30 前放下手機準時就寢」喔！完成後記得打勾！"
+    },
+    {
+      "time": "00:00",
+      "title": "🌙 準備睡覺囉！",
+      "body": "點擊床鋪可對比明日第一堂課計算睡眠時數。"
+    },
+    {
+      "time": "23:19",
+      "title": "💧 喝水提醒！",
+      "body": "目前飲水 1750 / 2500 ml，快喝一杯 250ml 吧！"
+    },
+    {
       "time": "21:30",
       "title": "✨ 本週習慣打卡提醒 (21:30)",
       "body": "今天還沒打卡「🚲 30 分鐘飛輪有氧 / 伸展運動」喔！完成後記得打勾！"
@@ -704,26 +959,6 @@
       "time": "18:30",
       "title": "🥗 晚餐時間到！",
       "body": "記得紀錄晚餐與蛋白質攝取量！"
-    },
-    {
-      "time": "18:11",
-      "title": "💧 喝水提醒！",
-      "body": "目前飲水 1000 / 2500 ml，快喝一杯 250ml 吧！"
-    },
-    {
-      "time": "17:00",
-      "title": "⏰ 代辦事項提醒 (17:00)",
-      "body": "海科計畫 完整摘要完成 [研究計畫]"
-    },
-    {
-      "time": "16:49",
-      "title": "🔔 裝置通知欄已成功啟用！",
-      "body": "代辦事項、習慣打卡、三餐與預算提醒都會出現在你的手機/平板/電腦通知欄！"
-    },
-    {
-      "time": "16:48",
-      "title": "🎉 100% 完成結算！獲得 +40 💡靈感代幣",
-      "body": "已完成「實驗室 IEET 競賽得獎海報 (79×55cm)」（專案 100% 完賽結算），可至小賣部兌換獎勵！"
     }
   ],
   "playlists": [
@@ -784,17 +1019,17 @@
       "note": "免登入即可線上串流與離線下載"
     }
   ],
-  "inspirationTokens": 45,
+  "inspirationTokens": 90,
   "shopSubTab": "shop",
-  "scheduleViewMode": "week",
-  "scheduleFilterDate": "2026-11-14",
-  "scheduleFilterType": "project",
+  "scheduleViewMode": "day",
+  "scheduleFilterDate": "2026-11-16",
+  "scheduleFilterType": "all",
   "shopItems": [
     {
       "id": "SH01",
       "icon": "🌿",
       "title": "觀音山 / 壽山森林步道微旅行",
-      "cost": 40,
+      "cost": 50,
       "needsTime": true,
       "defaultTime": "15:30",
       "endTime": "18:00",
@@ -804,7 +1039,7 @@
       "id": "SH02",
       "icon": "🧖‍♀️",
       "title": "居家頂級 SPA 敷臉＆精油護髮之夜",
-      "cost": 30,
+      "cost": 150,
       "needsTime": true,
       "defaultTime": "21:00",
       "endTime": "22:30",
@@ -814,7 +1049,7 @@
       "id": "SH03",
       "icon": "🎨",
       "title": "誠品書局 / 美術館文藝充電午後",
-      "cost": 45,
+      "cost": 450,
       "needsTime": true,
       "defaultTime": "14:00",
       "endTime": "17:00",
@@ -824,7 +1059,7 @@
       "id": "SH04",
       "icon": "🍣",
       "title": "精緻高蛋白鮭魚 / 舒肥原型美食饗宴",
-      "cost": 55,
+      "cost": 1250,
       "needsTime": true,
       "defaultTime": "18:00",
       "endTime": "20:00",
@@ -834,7 +1069,7 @@
       "id": "SH05",
       "icon": "🖌️",
       "title": "寶雅 / 宜得利質感手繪文具＆美妝選物",
-      "cost": 60,
+      "cost": 850,
       "needsTime": false,
       "defaultTime": "16:30",
       "endTime": "18:00",
@@ -844,7 +1079,7 @@
       "id": "SH06",
       "icon": "🎬",
       "title": "質感電影院 / 紀錄片無壓觀影（配無糖花草茶）",
-      "cost": 50,
+      "cost": 1000,
       "needsTime": true,
       "defaultTime": "19:30",
       "endTime": "22:00",
@@ -854,7 +1089,7 @@
       "id": "SH07",
       "icon": "🎡",
       "title": "與好友陽光早午餐 / 駁二看展約會",
-      "cost": 75,
+      "cost": 2000,
       "needsTime": true,
       "defaultTime": "11:00",
       "endTime": "15:00",
@@ -864,7 +1099,7 @@
       "id": "SH08",
       "icon": "🏕️",
       "title": "週末一日無課業「身心數位排毒假」",
-      "cost": 100,
+      "cost": 1850,
       "needsTime": true,
       "defaultTime": "09:30",
       "endTime": "21:00",
@@ -884,6 +1119,27 @@
     }
   ],
   "completedArchive": [
+    {
+      "id": "CA1794805792327vgc",
+      "title": "英文 speaking",
+      "category": "一次性代辦完成結算",
+      "completedAt": "2026-11-16",
+      "tokensEarned": 15
+    },
+    {
+      "id": "CA1794805423534v6t",
+      "title": "海科計畫 完整摘要完成",
+      "category": "一次性代辦完成結算",
+      "completedAt": "2026-11-16",
+      "tokensEarned": 15
+    },
+    {
+      "id": "CA17946778181596o3",
+      "title": "線性代數 第四次小考 練習",
+      "category": "一次性代辦完成結算",
+      "completedAt": "2026-11-15",
+      "tokensEarned": 15
+    },
     {
       "id": "CA1794659521638isk",
       "title": "🌙 00:30 前放下手機準時就寢",
@@ -1140,7 +1396,7 @@
     "targetKcal": 1345,
     "targetProtein": 110,
     "targetWaterMl": 2500,
-    "waterCups": 7
+    "waterCups": 0
   },
   "weightLogs": [
     {
@@ -2785,7 +3041,7 @@
         false,
         false,
         false,
-        true,
+        false,
         false
       ],
       "weekSettled": true
@@ -2793,62 +3049,46 @@
   ],
   "todos": [
     {
-      "id": "TD1794646322231",
-      "text": "計算機 小考練習",
-      "color": "#F9D5D8",
-      "date": "2026-11-15",
-      "time": "10:00",
-      "estMins": 90,
+      "id": "TD1794805412182",
+      "text": "基礎電工實習 Lab10 11",
+      "color": "#FED7AA",
+      "date": "2026-11-17",
+      "time": "06:00",
+      "estMins": 240,
       "hasDeadline": true,
       "dueDate": "2026-11-18",
-      "dueTime": "15:30",
-      "cat": "課業",
+      "dueTime": "21:00",
+      "cat": "作業",
+      "priority": "中",
+      "done": false
+    },
+    {
+      "id": "TD1794805353316",
+      "text": "RAG學習進度",
+      "color": "#EDE9FE",
+      "date": "2026-11-16",
+      "time": "18:00",
+      "estMins": 300,
+      "hasDeadline": true,
+      "dueDate": "2026-11-18",
+      "dueTime": "18:00",
+      "cat": "實驗室",
       "priority": "高",
       "done": false
     },
     {
-      "id": "TD1794646272979",
-      "text": "電路學 第七章小考 練習",
+      "id": "TD1794804961442",
+      "text": "通訊原理作業 第六次",
       "color": "#D8ECE2",
-      "date": "2026-11-15",
-      "time": "08:00",
-      "estMins": 120,
-      "hasDeadline": true,
-      "dueDate": "2026-11-19",
-      "dueTime": "09:10",
-      "cat": "課業",
-      "priority": "高",
-      "done": false
-    },
-    {
-      "id": "TD02",
-      "text": "海科計畫 完整摘要完成",
-      "date": "2026-11-14",
-      "time": "17:00",
-      "estMins": 120,
-      "color": "#E0F2FE",
-      "hasDeadline": true,
-      "dueDate": "2026-11-16",
-      "dueTime": "17:00",
-      "cat": "研究計畫",
-      "priority": "高",
-      "done": false,
-      "notified": false
-    },
-    {
-      "id": "TD03",
-      "text": "線性代數 第四次小考 練習",
-      "date": "2026-11-14",
-      "time": "20:00",
+      "date": "2026-11-21",
+      "time": "06:00",
       "estMins": 60,
-      "color": "#FBE39C",
       "hasDeadline": true,
-      "dueDate": "2026-11-18",
-      "dueTime": "09:10",
-      "cat": "課業",
-      "priority": "高",
-      "done": false,
-      "notified": false
+      "dueDate": "2026-11-23",
+      "dueTime": "09:00",
+      "cat": "作業",
+      "priority": "中",
+      "done": false
     }
   ],
   "financeCats": [
@@ -3478,122 +3718,9 @@
   "selectedProjectId": null,
   "deepProjects": [
     {
-      "id": "PRJ01",
-      "icon": "🌊",
-      "title": "116 海委會大專生專題研究計畫",
-      "type": "專題研究計畫",
-      "due": "2026-11-30",
-      "color": "#E0F2FE",
-      "desc": "永安至茄萣海岸線變遷（納入 NODASS 國家海洋資料庫加分項），江傳文教授指導",
-      "categories": [
-        {
-          "id": "cat_lit",
-          "name": "📚 文獻與理論探討",
-          "weight": 25,
-          "color": "#E0F2FE"
-        },
-        {
-          "id": "cat_exp",
-          "name": "💻 數據實驗與程式分析",
-          "weight": 30,
-          "color": "#D8ECE2"
-        },
-        {
-          "id": "cat_doc",
-          "name": "✍️ 計畫書與論文撰寫",
-          "weight": 30,
-          "color": "#FBE39C"
-        },
-        {
-          "id": "cat_pre",
-          "name": "🎨 海報簡報與送件審查",
-          "weight": 15,
-          "color": "#F9D5D8"
-        }
-      ],
-      "tasks": [
-        {
-          "id": "PT101",
-          "catId": "cat_lit",
-          "title": "下載並核對 NODASS 國家海洋資料庫加分項圖資",
-          "date": "2026-11-14",
-          "time": "10:00",
-          "estMins": 90,
-          "actualMins": 90,
-          "color": "#E0F2FE",
-          "hasDeadline": true,
-          "dueDate": "2026-11-16",
-          "dueTime": "18:00",
-          "done": true,
-          "rewarded": true
-        },
-        {
-          "id": "PT102",
-          "catId": "cat_exp",
-          "title": "CoastSat 多期遙測與 GIS 海岸線退縮圖整理",
-          "date": "2026-11-15",
-          "time": "14:00",
-          "estMins": 120,
-          "actualMins": 90,
-          "color": "#D8ECE2",
-          "hasDeadline": true,
-          "dueDate": "2026-11-20",
-          "dueTime": "22:00",
-          "done": true,
-          "rewarded": true
-        },
-        {
-          "id": "PT103",
-          "catId": "cat_doc",
-          "title": "116 海委會大專生專題研究計畫書撰寫與完稿",
-          "date": "2026-11-16",
-          "time": "15:00",
-          "estMins": 150,
-          "actualMins": 60,
-          "color": "#FBE39C",
-          "hasDeadline": true,
-          "dueDate": "2026-11-28",
-          "dueTime": "23:59",
-          "done": false
-        },
-        {
-          "id": "PT104",
-          "catId": "cat_pre",
-          "title": "江傳文教授審閱與海委會線上系統衝刺送件",
-          "date": "2026-11-29",
-          "time": "16:00",
-          "estMins": 60,
-          "actualMins": 0,
-          "color": "#F9D5D8",
-          "hasDeadline": true,
-          "dueDate": "2026-11-30",
-          "dueTime": "17:00",
-          "done": false
-        }
-      ],
-      "papers": [
-        {
-          "id": "PP101",
-          "title": "CoastSat: A Google Earth Engine-enabled Python toolkit to extract shorelines from publicly available satellite imagery",
-          "authors": "Vos, K., Splinter, K. D., Harley, M. D., Simmons, J. A., & Turner, I. L. (2019)",
-          "venue": "Environmental Modelling & Software, 122, 104528",
-          "doi": "10.1016/j.envsoft.2019.104528",
-          "stage": "已精讀並引用",
-          "readPages": 16,
-          "totalPages": 16,
-          "estMins": 120,
-          "spentMins": 120,
-          "color": "#E0F2FE",
-          "methodNote": "利用 MNDWI 水指標搭配 Otsu 閾值與次像素邊界萃取海岸線，精準度達 ~10m。",
-          "citationNote": "(Vos et al., 2019) — 已匯入 EndNote APA 7th 並引用於研究方法。",
-          "rewarded": true
-        }
-      ]
-    },
-    {
       "id": "PRJ02",
       "icon": "📑",
-      "title": "台灣水產學會 116 年度學術論文",
+      "title": "海科計畫",
       "type": "學會論文發表",
       "due": "2026-11-25",
       "color": "#FBE39C",
@@ -3626,25 +3753,10 @@
       ],
       "tasks": [
         {
-          "id": "PT201",
-          "catId": "cat_exp",
-          "title": "完成 CoastSat 42 年海岸線變遷圖表與統計數據核對",
-          "date": "2026-11-16",
-          "time": "10:00",
-          "estMins": 120,
-          "actualMins": 120,
-          "color": "#D8ECE2",
-          "hasDeadline": true,
-          "dueDate": "2026-11-20",
-          "dueTime": "20:00",
-          "done": true,
-          "rewarded": true
-        },
-        {
           "id": "PT202",
           "catId": "cat_doc",
-          "title": "與廖君珮確認台灣水產學會論文摘要與圖說定稿",
-          "date": "2026-11-18",
+          "title": "與廖教授核對摘要(完整版)",
+          "date": "2026-11-14",
           "time": "19:30",
           "estMins": 90,
           "actualMins": 45,
@@ -3652,103 +3764,6 @@
           "hasDeadline": true,
           "dueDate": "2026-11-25",
           "dueTime": "23:59",
-          "done": false
-        }
-      ],
-      "papers": [
-        {
-          "id": "PP201",
-          "title": "永安新港至茄萣興達港海岸線退縮之時空變遷：基於多期遙測影像與 GIS 之觀察",
-          "authors": "黃子芸、廖君珮 (2026)",
-          "venue": "116年度台灣水產學會學術論文發表會",
-          "doi": "NODASS + Landsat 5/7/8/9 & Sentinel-2",
-          "stage": "讀完方法與實驗",
-          "readPages": 8,
-          "totalPages": 10,
-          "estMins": 150,
-          "spentMins": 110,
-          "color": "#FBE39C",
-          "methodNote": "分析 1984 年永安液化天然氣接收站與興達港擴建之突堤效應對海岸退縮速率影響。",
-          "citationNote": "與廖君珮共同發表之台灣水產學會論文稿件。"
-        }
-      ]
-    },
-    {
-      "id": "PRJ03",
-      "icon": "🏖️",
-      "title": "海科計劃大咪簡報 (A3 赤西里 & 遙測)",
-      "type": "團隊研究專案",
-      "due": "2026-11-21",
-      "color": "#D8ECE2",
-      "desc": "整理訪談紀錄與 CoastSat 海岸線退縮圖（與周函諭、吳承瑋、張澄享合作 A3 區田野調查與進度發表）",
-      "categories": [
-        {
-          "id": "cat_lit",
-          "name": "📚 歷史空照與背景整理",
-          "weight": 20,
-          "color": "#E0F2FE"
-        },
-        {
-          "id": "cat_exp",
-          "name": "💻 訪談紀錄與 CoastSat 疊圖",
-          "weight": 30,
-          "color": "#D8ECE2"
-        },
-        {
-          "id": "cat_doc",
-          "name": "✍️ 完整摘要與觀察報告",
-          "weight": 25,
-          "color": "#FBE39C"
-        },
-        {
-          "id": "cat_pre",
-          "name": "🎨 11/21 大咪簡報製作",
-          "weight": 25,
-          "color": "#F9D5D8"
-        }
-      ],
-      "tasks": [
-        {
-          "id": "PT301",
-          "catId": "cat_exp",
-          "title": "整理赤西里 A3 區訪談紀錄與 CoastSat 海岸線退縮圖",
-          "date": "2026-11-13",
-          "time": "14:00",
-          "estMins": 120,
-          "actualMins": 120,
-          "color": "#D8ECE2",
-          "hasDeadline": true,
-          "dueDate": "2026-11-15",
-          "dueTime": "18:00",
-          "done": true,
-          "rewarded": true
-        },
-        {
-          "id": "PT302",
-          "catId": "cat_doc",
-          "title": "海科計畫 完整摘要完成",
-          "date": "2026-11-14",
-          "time": "17:00",
-          "estMins": 120,
-          "actualMins": 90,
-          "color": "#E0F2FE",
-          "hasDeadline": true,
-          "dueDate": "2026-11-16",
-          "dueTime": "17:00",
-          "done": false
-        },
-        {
-          "id": "PT303",
-          "catId": "cat_pre",
-          "title": "11/21 海科計畫大咪簡報定稿與分工確認",
-          "date": "2026-11-20",
-          "time": "20:00",
-          "estMins": 90,
-          "actualMins": 60,
-          "color": "#F9D5D8",
-          "hasDeadline": true,
-          "dueDate": "2026-11-21",
-          "dueTime": "10:00",
           "done": false
         }
       ],
@@ -3768,7 +3783,7 @@
   },
   "penaltyLogs": [],
   "geminiConfig": {
-    "apiKey": "",
+    "apiKey": "AIzaSyCrP67XPEvyln-BhWOD0_3Wk_Rg15IM4B4",
     "model": "gemini-2.5-flash"
   },
   "aiChatMessages": [
@@ -3778,10 +3793,253 @@
       "time": "11:45",
       "text": "嗨子芸！我是你的 **🤖 Gemini 智慧書房管家** ✨\n我已經即時連動你書房 OS 裡的所有資料（包含 **4 項代辦事項、3 個專題研究計畫與論文進度、12 堂課表、45 點靈感代幣、4 個財務帳戶、大一至大二上成績單與飲水飲食紀錄**）。\n\n你可以隨時問我：\n1. **查詢系統資料或課業問題**：例如「幫我查最近有哪些代辦跟專案要交？」、「目前我的靈感點數、逾期扣點規則跟存款餘額是多少？」、「幫我複習離散數學同餘定理或 CoastSat 原理」\n2. **指令改動與編輯資料（安全確認機制）**：例如「幫我新增代辦：明天晚上 8 點練習線性代數 90 分鐘，週五下午 5 點交」、「把海科計畫完整摘要標記完成」、「幫我記帳午餐 125 元」、「幫我在海委會計畫新增小任務：校對計畫書 60 分鐘」。\n\n🔒 **安全承諾**：任何會修改系統資料的操作，我都會先列出 **「📋 預計發生改動的資料預覽表（改動前 vs. 改動後）」** 告知你，等你親自點選 **「✅ 確認執行改動」** 後才會正式寫入系統！",
       "actionIds": []
+    },
+    {
+      "id": "MSG_U_1794804838247",
+      "role": "user",
+      "time": "12:53",
+      "text": "你連結到了金鑰了嗎",
+      "actionIds": []
+    },
+    {
+      "id": "MSG_A_1794804841793",
+      "role": "assistant",
+      "time": "12:54",
+      "text": "子芸妳好！我是妳的智慧書房管家 Gemini AI。關於妳提到的「金鑰」，我本身是一個大型語言模型，我的運作是基於我被訓練的資料以及妳提供給我的即時書房 OS 資料。我並沒有直接「連結」到任何實體的金鑰，我的功能是分析和處理妳給我的資訊，並根據這些資訊來回答問題或協助妳管理書房事務喔！",
+      "actionIds": []
+    },
+    {
+      "id": "MSG_U_1794804871059",
+      "role": "user",
+      "time": "12:54",
+      "text": "幫我查最近有哪些代辦跟專案要交？距離期限還有多久？",
+      "actionIds": []
+    },
+    {
+      "id": "MSG_A_1794804879495",
+      "role": "assistant",
+      "time": "12:54",
+      "text": "子芸，妳好！這是妳最近的代辦事項和專案任務清單，我已經幫妳整理好並計算了距離期限還有多久：\n\n**📚 近期代辦事項 (Todos):**\n*   **海科計畫 完整摘要完成** (ID: TD02)\n    *   期限：今天 2026-11-16 17:00\n    *   距離期限：**今天 17:00 前**\n*   **計算機 小考練習** (ID: TD1794646322231)\n    *   期限：2026-11-18 15:30\n    *   距離期限：**還有 2 天**\n*   **電路學 第七章小考 練習** (ID: TD1794646272979)\n    *   期限：2026-11-19 09:10\n    *   距離期限：**還有 3 天**\n\n**📝 近期專案任務 (Deep Projects):**\n*   **海科計畫** (ID: PRJ02)\n    *   任務：**與廖教授核對摘要(完整版)** (ID: PT202)\n        *   期限：2026-11-25\n        *   距離期限：**還有 9 天**\n\n請注意，今天下午 5 點前妳還有一個「海科計畫 完整摘要完成」的代辦事項喔！加油！",
+      "actionIds": []
     }
   ],
   "pendingAiActions": [],
-  "aiActionHistory": []
+  "aiActionHistory": [],
+  "exams": [
+    {
+      "id": "EX_CS_QUIZ",
+      "title": "計算機程式設計(一) 小考",
+      "examType": "小考",
+      "subject": "計算機程式設計(一)",
+      "examDate": "2026-11-18",
+      "examTime": "15:30",
+      "targetScore": "95 分",
+      "masteryPct": 65,
+      "color": "#F9D5D8",
+      "reviewFreq": "每 1 天（考前黃金高頻間隔）",
+      "aiFreqReason": "距離考試僅剩 1 天，依艾賓浩斯記憶保留曲線採用「主動回憶手寫迴圈追蹤 → 錯題重打」高頻循環，可大幅降低臨場語法與邊界失誤。",
+      "aiMethod": "1️⃣ 前 20 分鐘不看解答手寫 C 語言 for-loop 與巢狀迴圈追蹤。\n2️⃣ 檢查邊界條件（<= 與 <）及變數初值。\n3️⃣ 上機編譯驗證輸出格式後早睡鞏固記憶。",
+      "done": false,
+      "reviewSessions": [
+        {
+          "id": "RS_CS_1",
+          "date": "2026-11-17",
+          "time": "20:00",
+          "estMins": 90,
+          "focus": "第1輪（主動回憶與手寫追蹤）：計算機 小考練習（不看課本手寫迴圈）",
+          "done": false,
+          "spentMins": 0
+        }
+      ],
+      "topics": [
+        {
+          "id": "ET1",
+          "name": "Ch.3 for / while 迴圈與巢狀迴圈追蹤",
+          "weight": 50,
+          "mastery": 75,
+          "note": "注意 <= 與 < 邊界條件"
+        },
+        {
+          "id": "ET2",
+          "name": "條件判斷、全域/區域變數與輸出格式",
+          "weight": 50,
+          "mastery": 60,
+          "note": "手寫輸出模擬不能漏換行"
+        }
+      ]
+    },
+    {
+      "id": "EX_CIR_QUIZ",
+      "title": "電路學(一) 第七章小考",
+      "examType": "小考",
+      "subject": "電路學(一)",
+      "examDate": "2026-11-19",
+      "examTime": "09:10",
+      "targetScore": "92 分",
+      "masteryPct": 60,
+      "color": "#D8ECE2",
+      "reviewFreq": "每 1 天（考前黃金高頻間隔）",
+      "aiFreqReason": "距離考試僅剩 2 天，一階/二階 RL/RC 暫態電路考驗推導熟練度，採 D-2 推導＋D-1 錯題重算最能確保考場計算精準。",
+      "aiMethod": "1️⃣ 費曼白紙回憶法：默寫四條暫態核心公式與初值/終值判定步驟。\n2️⃣ 練習含相依電源之戴維寧等效電阻 Rth（測試電源法）。\n3️⃣ 搭配 Casio fx-991MS 驗算聯立方程式。",
+      "done": false,
+      "reviewSessions": [
+        {
+          "id": "RS_CIR_1",
+          "date": "2026-11-17",
+          "time": "21:30",
+          "estMins": 60,
+          "focus": "第1輪（建立架構）：一階 RC/RL 暫態初值與終值判定推導",
+          "done": false,
+          "spentMins": 0
+        },
+        {
+          "id": "RS_CIR_2",
+          "date": "2026-11-18",
+          "time": "20:00",
+          "estMins": 60,
+          "focus": "第2輪（考前鞏固）：電路學 第七章小考 限時模擬與計算機驗算",
+          "done": false,
+          "spentMins": 0
+        }
+      ],
+      "topics": [
+        {
+          "id": "ET3",
+          "name": "一階 RC / RL 暫態電路（自然響應與步階響應）",
+          "weight": 50,
+          "mastery": 65,
+          "note": "熟記 v(0+)=v(0-) 與 i(0+)=i(0-)"
+        },
+        {
+          "id": "ET4",
+          "name": "含相依電源之戴維寧等效電阻 Rth 計算",
+          "weight": 50,
+          "mastery": 55,
+          "note": "使用測試電壓源 / 電流源法"
+        }
+      ]
+    },
+    {
+      "id": "EX_CPE",
+      "title": "CPE 大學程式能力檢定（目標 2~4 題）",
+      "examType": "證照考",
+      "subject": "C++ / 資料結構與演算法",
+      "examDate": "2026-12-08",
+      "examTime": "18:30",
+      "targetScore": "3 題 AC",
+      "masteryPct": 55,
+      "color": "#E0F2FE",
+      "reviewFreq": "每 2 天（艾賓浩斯 1-2-4-7 間隔複習）",
+      "aiFreqReason": "距離 CPE 還有 21 天，最適合「每 2 天刷 1 回限時模擬＋第 4/7 天回頭重寫卡關題」的間隔重複策略，避免看過就忘。",
+      "aiMethod": "1️⃣ 前 20 分鐘限時完成一星題（STL / 模擬題）。\n2️⃣ 中段專攻圖論 BFS/DFS 與基礎 DP。\n3️⃣ 錯題必須隔 2 天與隔 7 天「蓋上解答重打一次」才算真正學會。",
+      "done": false,
+      "reviewSessions": [
+        {
+          "id": "RS_CPE_1",
+          "date": "2026-11-17",
+          "time": "18:00",
+          "estMins": 60,
+          "focus": "第1輪：CPE 歷屆一星模擬題 2 題限時 AC",
+          "done": false,
+          "spentMins": 0
+        },
+        {
+          "id": "RS_CPE_2",
+          "date": "2026-11-19",
+          "time": "18:00",
+          "estMins": 75,
+          "focus": "第2輪：數論 GCD/快速冪＋隔日重寫上輪錯題",
+          "done": false,
+          "spentMins": 0
+        },
+        {
+          "id": "RS_CPE_3",
+          "date": "2026-11-22",
+          "time": "15:00",
+          "estMins": 90,
+          "focus": "第3輪：圖論 BFS/DFS 與動態規劃交錯練習",
+          "done": false,
+          "spentMins": 0
+        }
+      ],
+      "topics": [
+        {
+          "id": "ET5",
+          "name": "一星基礎模擬與 STL 容器 (vector / map)",
+          "weight": 35,
+          "mastery": 80,
+          "note": "確保前 2 題 20 分鐘內 AC"
+        },
+        {
+          "id": "ET6",
+          "name": "數論與模算數 (GCD / 快速冪 / 質數篩)",
+          "weight": 30,
+          "mastery": 60,
+          "note": "留意 long long 溢位"
+        },
+        {
+          "id": "ET7",
+          "name": "圖論 BFS/DFS 與動態規劃 (DP)",
+          "weight": 35,
+          "mastery": 40,
+          "note": "目標解出第 3~4 題"
+        }
+      ]
+    },
+    {
+      "id": "EX_BESTEP",
+      "title": "BESTEP 培力英檢（聽讀說寫）",
+      "examType": "證照考",
+      "subject": "實用英文 / 英文檢定",
+      "examDate": "2026-12-20",
+      "examTime": "09:00",
+      "targetScore": "B2 以上",
+      "masteryPct": 70,
+      "color": "#EDE9FE",
+      "reviewFreq": "每 3 天（雙軌間隔輸入輸出法）",
+      "aiFreqReason": "語言檢定重在長期語感與主動輸出，採每 3 天一次「30分聽讀輸入＋20分口說跟讀輸出」最省時且不易疲乏。",
+      "aiMethod": "1️⃣ 聽力：Shadowing 影子跟讀法訓練反應速度。\n2️⃣ 閱讀：計時掃描關鍵字與段落主旨。\n3️⃣ 說寫：建立萬用結構模板並錄音檢視流暢度。",
+      "done": false,
+      "reviewSessions": [
+        {
+          "id": "RS_BE_1",
+          "date": "2026-11-19",
+          "time": "21:30",
+          "estMins": 45,
+          "focus": "第1輪：BESTEP 聽讀限時測驗與生字卡間隔複習",
+          "done": false,
+          "spentMins": 0
+        },
+        {
+          "id": "RS_BE_2",
+          "date": "2026-11-22",
+          "time": "21:00",
+          "estMins": 45,
+          "focus": "第2輪：口說錄音計時與寫作架構演練",
+          "done": false,
+          "spentMins": 0
+        }
+      ],
+      "topics": [
+        {
+          "id": "ET8",
+          "name": "聽力與閱讀測驗（限時掃描與跟讀）",
+          "weight": 50,
+          "mastery": 75,
+          "note": "多練學術短講筆記"
+        },
+        {
+          "id": "ET9",
+          "name": "口說與寫作（結構模板與流暢度）",
+          "weight": 50,
+          "mastery": 65,
+          "note": "計時錄音練習"
+        }
+      ]
+    }
+  ],
+  "selectedExamId": null,
+  "examDetailTab": "sessions"
 };
 
       let state = loadState();
@@ -3829,6 +4087,14 @@
               if (!p.libPapers) p.libPapers = clone(INITIAL_STATE.libPapers);
               if (!p.deepProjects || !p.deepProjects.length) p.deepProjects = clone(INITIAL_STATE.deepProjects);
               if (!p.projectDetailTab) p.projectDetailTab = 'tasks';
+              if (!p.exams) p.exams = clone(INITIAL_STATE.exams);
+              if (p.selectedExamId === undefined) p.selectedExamId = null;
+              if (!p.examDetailTab) p.examDetailTab = 'sessions';
+              if (p.currentDietDate && p.currentDietDate !== getTodayISO()) {
+                p.bodyMetrics = p.bodyMetrics || clone(INITIAL_STATE.bodyMetrics);
+                p.bodyMetrics.waterCups = 0;
+                p.currentDietDate = getTodayISO();
+              }
               if (!p.penaltySettings) p.penaltySettings = clone(INITIAL_STATE.penaltySettings);
               if (!p.penaltyLogs) p.penaltyLogs = [];
               if (!p.geminiConfig) p.geminiConfig = clone(INITIAL_STATE.geminiConfig);
@@ -3873,6 +4139,69 @@
         });
         saveState();
         triggerNotification(`🎉 100% 完成結算！獲得 +${reward} 💡靈感代幣`, `已完成「${title}」（${category}），可至小賣部兌換獎勵！`);
+      }
+
+
+      // ==================== SCIENTIFIC EXAM REVIEW ENGINE (艾賓浩斯間隔重複 × 主動回憶) ====================
+      function generateScientificExamPlan(exam) {
+        const todayStr = getTodayISO();
+        const tDate = new Date(todayStr + 'T00:00:00');
+        const eDate = new Date((exam.examDate || todayStr) + 'T00:00:00');
+        const daysLeft = Math.max(1, Math.round((eDate - tDate) / 86400000));
+        const eType = exam.examType || '小考';
+        const subj = exam.subject || exam.title || '考科';
+
+        let freqLabel = '';
+        let reason = '';
+        let offsets = [];
+        if (daysLeft <= 3) {
+          freqLabel = '每 1 天（考前黃金高頻間隔）';
+          reason = `距離考試僅剩 ${daysLeft} 天，依艾賓浩斯記憶保留曲線採用每日「主動回憶 → 錯題重算 → 考前睡眠鞏固」高頻循環，可大幅降低臨場遺忘率。`;
+          for (let i = 0; i < daysLeft; i++) offsets.push(i);
+        } else if (daysLeft <= 10) {
+          freqLabel = '每 1~2 天（1-2-4 間隔衝刺法）';
+          reason = `剩餘 ${daysLeft} 天最適合 1-2-4 天間隔重複節奏，每次複習間隔拉長以強化長期提取強度（Retrieval Strength）。`;
+          offsets = [0, 1, 3, Math.max(4, daysLeft - 1)].filter((v, i, a) => v < daysLeft && a.indexOf(v) === i);
+        } else {
+          freqLabel = eType === '證照考' ? '每 2~3 天（雙軌間隔＋模擬實戰法）' : '每 3 天（艾賓浩斯 1-3-7 長期記憶法）';
+          reason = `距離考試還有 ${daysLeft} 天，採用科學化「第1天建立架構 → 第3天主動回憶 → 第7天交錯刷題 → 考前2天限時模擬」最省時且不易倦怠。`;
+          offsets = [0, 2, 5, 9, Math.max(10, daysLeft - 2)].filter((v, i, a) => v < daysLeft && a.indexOf(v) === i);
+        }
+
+        let method = '';
+        if (/程式|C\+\+|CPE|演算法|資料結構/i.test(subj + exam.title)) {
+          method = '1️⃣ 前 20 分鐘限時完成基礎題，訓練一次 AC 手感。\n2️⃣ 中段採「交錯練習」混做圖論、DP 與數論題。\n3️⃣ 卡關題必須隔 2 天與隔 7 天「蓋上解答重打一次」。';
+        } else if (/英文|BESTEP|多益|TOEIC/i.test(subj + exam.title)) {
+          method = '1️⃣ Shadowing 影子跟讀法訓練聽力反應與語調。\n2️⃣ 閱讀計時掃描關鍵句，減少逐字翻譯時間。\n3️⃣ 錯題與生字做成間隔回憶卡，睡前 15 分鐘複習。';
+        } else if (/線性代數|離散數學|電路|通訊|微積分|數位/i.test(subj + exam.title)) {
+          method = '1️⃣ 費曼白紙回憶法：合上課本默寫核心定義、定理或電路公式推導。\n2️⃣ 專攻作業與歷屆考古題錯題，標記卡關斷點。\n3️⃣ 搭配工程計算機限時驗算，確保計算精準度。';
+        } else {
+          method = '1️⃣ 先做「閉卷主動回憶」寫出章節大綱再對照筆記補漏。\n2️⃣ 採交錯練習不同題型，避免單一題型產生假性熟練。\n3️⃣ 考前 24 小時只看錯題本與關鍵架構並確保充足睡眠。';
+        }
+
+        const focusTemplates = [
+          '第1輪（建立架構）：閉卷主動回憶核心章節與筆記盲點',
+          '第2輪（錯題攻堅）：專攻作業／考古題錯題重算與推導',
+          '第3輪（交錯實戰）：混合不同章節題型計時練習',
+          '第4輪（限時模擬）：依正式考試時間進行模擬測驗',
+          '第5輪（考前鞏固）：速覽高頻公式與易錯提示＋早睡鞏固'
+        ];
+
+        const sessions = offsets.map((off, idx) => {
+          const d = new Date(tDate);
+          d.setDate(d.getDate() + off);
+          const iso = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+          return {
+            id: 'RS' + Date.now() + '_' + idx,
+            date: iso,
+            time: idx % 2 === 0 ? '20:00' : '19:30',
+            estMins: eType === '證照考' || eType === '期中考' ? 75 : 60,
+            focus: focusTemplates[Math.min(idx, focusTemplates.length - 1)],
+            done: false
+          };
+        });
+
+        return { freqLabel, reason, method, sessions };
       }
 
       // ==================== OVERDUE DEADLINE PENALTY ENGINE (未於期限內完成自動扣靈感點數) ====================
@@ -4860,6 +5189,7 @@ ${liveContext}
           state.dietHistory.unshift(entry);
         }
         state.diet = state.diet.map(d => ({ ...d, items:'', kcal:0, protein:0, carbs:0, fat:0, fiber:0, vitA:0, vitB:0, vitC:0, vitD:0, vitE:0, ca:0, fe:0 }));
+        if (state.bodyMetrics) state.bodyMetrics.waterCups = 0;
         state.currentDietDate = getTodayISO();
         saveState();
       }
@@ -5401,7 +5731,7 @@ ${liveContext}
             { obj: 'calendar', left: '36%', top: '56%', w: '8%', h: '14%', label: '📅 週期代辦＆習慣' },
             { obj: 'body', left: '41%', top: '26%', w: '18.5%', h: '31%', label: '⚖️ 減重 59→50kg' },
             { obj: 'study', left: '43.5%', top: '57%', w: '13%', h: '15%', label: '📖 大一~大二上成績單' },
-            { obj: 'caffeine_tracker', left: '57%', top: '54%', w: '6%', h: '16%', label: '☕ 咖啡因追蹤' },
+            { obj: 'exams', left: '57%', top: '54%', w: '6%', h: '16%', label: '☕📝 考試與 AI 科學複習中心' },
             { obj: 'wallet', left: '63%', top: '63%', w: '6%', h: '12%', label: '👛 手帳理財中心' },
             { obj: 'cert_career', left: '61.5%', top: '44%', w: '7.5%', h: '18%', label: '🧳 證照與履歷' },
             { obj: 'grad_goal', left: '65.5%', top: '14%', w: '26%', h: '25%', label: '🏆 研究所目標牆' },
@@ -5611,6 +5941,37 @@ ${liveContext}
           });
 
           // 4. Generate Detailed Course Timetable Slots across the active month/week window
+          // 3.5 Exams & AI Scientific Review Sessions
+          (state.exams || []).filter(ex => !ex.done).forEach(ex => {
+            const exCol = ex.color || '#F9D5D8';
+            const exDate = normDate(ex.examDate);
+            const exSH = parse24h(ex.examTime, 9);
+            unified.push({
+              uid: 'EX_' + ex.id, source: 'exam', filterCat: 'exam',
+              date: exDate, time: fmt24h(exSH), endTime: fmt24h(Math.min(24, exSH + 1.5)),
+              startH: exSH, endH: Math.min(24, exSH + 1.5),
+              title: `📝 [${ex.examType||'考試'}] ${ex.title}`,
+              sub: `🎯 目標：${ex.targetScore||'90+'} · 掌握度 ${ex.masteryPct||0}%`,
+              badgeLabel: `📝 ${ex.examType||'考試日'}`, barHex: '#F9D5D8', editable: false, rawId: ex.id
+            });
+            if (!deadlinesMap[exDate]) deadlinesMap[exDate] = [];
+            deadlinesMap[exDate].push({ uid: 'EXDUE_' + ex.id, title: `📝 考試：${ex.title}`, dueTime: ex.examTime || '09:00', typeLabel: ex.examType || '考試', color: exCol });
+
+            (ex.reviewSessions || []).filter(rs => !rs.done).forEach(rs => {
+              const rsSH = parse24h(rs.time, 20);
+              const rsM = Number(rs.estMins || 60);
+              const rsEH = Math.min(24, rsSH + rsM / 60);
+              unified.push({
+                uid: rs.id, source: 'exam_review', filterCat: 'exam',
+                date: normDate(rs.date), time: fmt24h(rsSH), endTime: fmt24h(rsEH),
+                startH: rsSH, endH: Math.max(rsSH + 0.5, rsEH),
+                title: `🧠 複習：${ex.title}`,
+                sub: `${rs.focus || '科學間隔複習'} (${rsM}分)`,
+                badgeLabel: '🧠 科學複習', barHex: exCol, editable: false, rawId: ex.id + ':' + rs.id
+              });
+            });
+          });
+
           const startGen = new Date(selYear, selMonth - 1, 1);
           startGen.setDate(startGen.getDate() - 7);
           for (let i = 0; i < 45; i++) {
@@ -5654,7 +6015,7 @@ ${liveContext}
                 <div class="overflow-x-auto room-scroll">
                   <div class="${isSingleDay ? 'min-w-[340px]' : 'min-w-[980px]'}">
                     <!-- Day Headers -->
-                    <div class="grid border-b-2 border-[#2B2523] bg-[#F4EDE0]" style="grid-template-columns: 64px repeat(${datesList.length}, minmax(0, 1fr));">
+                    <div class="grid border-b-2 border-[#2B2523] bg-[#F4EDE0] sched-light-block" style="grid-template-columns: 64px repeat(${datesList.length}, minmax(0, 1fr));">
                       <div class="p-2.5 text-center font-mono font-bold text-[11px] border-r border-[#2B2523]/30 flex flex-col justify-center">
                         <span>24H</span>
                         <span class="text-[9px] opacity-70">直向軸</span>
@@ -5733,7 +6094,14 @@ ${liveContext}
                                     <div class="space-y-0.5">
                                       <div class="flex items-center justify-between gap-1 text-[10px] font-mono font-bold leading-none opacity-85">
                                         <span>${it.time}–${it.endTime}</span>
-                                        ${it.source === 'todo' ? `<button type="button" data-sched-done-todo="${it.rawId}" class="px-1 py-0.2 rounded bg-white/90 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="完成代辦 (+15💡)">✓完成</button>` : it.source === 'prj_task' ? `<button type="button" data-sched-done-ptask="${it.rawId}" class="px-1 py-0.2 rounded bg-white/90 border border-[#2B2523] text-[9px] font-bold hover:bg-[#FBE39C]" title="完成專案小任務 (+20💡)">✓完成</button>` : ''}
+                                        ${
+      it.source === 'todo' ? `<button type="button" data-sched-done-todo="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="完成代辦並消失 (+15💡)">✓完成</button>`
+      : it.source === 'prj_task' ? `<button type="button" data-sched-done-ptask="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#FBE39C]" title="完成專案小任務並消失 (+20💡)">✓完成</button>`
+      : it.source === 'exam_review' ? `<button type="button" data-sched-done-exrev="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="完成本輪科學複習並消失 (+15💡)">✓完成</button>`
+      : it.source === 'exam' ? `<button type="button" data-sched-done-exam="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="考完結算並消失 (+35💡)">✓完成</button>`
+      : it.source === 'event' ? `<button type="button" data-sched-done-ev="${it.rawId}" class="px-1.5 py-0.2 rounded bg-white/95 border border-[#2B2523] text-[9px] font-bold hover:bg-[#06D6A0]" title="標記完成並從日程表移除">✓完成</button>`
+      : ''
+    }
                                       </div>
                                       <div class="font-bold text-xs leading-snug break-words text-[#2B2523]">${esc(it.title)}</div>
                                       ${heightPx >= 52 && it.sub ? `<div class="text-[10px] leading-tight break-words opacity-80 text-[#2B2523]">${esc(it.sub)}</div>` : ''}
@@ -5895,6 +6263,7 @@ ${liveContext}
                   ${[
                     {id:'all', label:'🌟 全部事項'},
                     {id:'todo', label:'⏰ 代辦'},
+                    {id:'exam', label:'📝 考試/複習'},
                     {id:'project', label:'📽️ 專案'},
                     {id:'class', label:'🏫 課表'},
                     {id:'meeting', label:'🧑‍🏫 開會'},
@@ -5930,6 +6299,9 @@ ${liveContext}
                         <div class="flex flex-wrap items-center gap-2 shrink-0">
                           ${item.source === 'todo' ? `<button type="button" data-sched-done-todo="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#06D6A0] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成結算並消失 (+15💡)</button>` : ''}
                           ${item.source === 'prj_task' ? `<button type="button" data-sched-done-ptask="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成專案小任務 (+20💡)</button><button type="button" data-open-prj="${item.rawId.split(':')[0]}" class="px-3 py-1.5 rounded-xl doodle-subtle font-bold text-xs">📂 進入該專案</button>` : ''}
+                          ${item.source === 'exam_review' ? `<button type="button" data-sched-done-exrev="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#06D6A0] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成複習並消失 (+15💡)</button>` : ''}
+                          ${item.source === 'exam' ? `<button type="button" data-sched-done-exam="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#06D6A0] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 考完結算並消失 (+35💡)</button>` : ''}
+                          ${item.source === 'event' ? `<button type="button" data-sched-done-ev="${item.rawId}" class="px-3.5 py-1.5 rounded-xl bg-[#D8ECE2] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✓ 完成並從日程表移除</button>` : ''}
                           ${item.editable ? `
                             <input type="date" data-mev-field="${item.rawId}:date" value="${item.date}" class="px-2 py-1 rounded-xl doodle-subtle text-xs font-bold" />
                             <input type="time" data-mev-field="${item.rawId}:time" value="${item.time}" class="px-2 py-1 rounded-xl doodle-subtle text-xs font-bold" />
@@ -6223,7 +6595,7 @@ ${liveContext}
               <div class="space-y-3">
                 <div class="flex flex-wrap items-center justify-between gap-2">
                   <div class="font-bold text-sm flex items-center gap-1.5">
-                    <span>⏰ 課業與日常代辦清單（專放日常與課業作業・大型計畫請至「🚀 專案追蹤中心」）</span>
+                    <span>⏰ 作業與日常活動代辦清單（專放「做作業」與「日常活動」· 考試複習請至「📝 考試中心」）</span>
                   </div>
                   <div class="flex items-center gap-2">
                     <button type="button" data-jump="home:master_schedule" class="px-3 py-1 rounded-xl bg-[#D8ECE2] border border-[#2B2523] font-bold text-[11px]">🗓️ 打開 Google 式直向總日程表</button>
@@ -6311,7 +6683,7 @@ ${liveContext}
                             </div>
                           </div>
                           <div class="flex items-center gap-1">
-                            <input type="text" data-todo-field="${t.id}:cat" value="${esc(t.cat || '一般')}" class="w-16 text-center px-1.5 py-0.5 rounded-lg doodle-card font-bold" placeholder="分類" />
+                            <select data-todo-field="${t.id}:cat" class="px-1.5 py-0.5 rounded-lg doodle-card font-bold">${['作業','日常活動'].map(c=>`<option value="${c}" ${(t.cat||'作業')===c?'selected':''}>${c}</option>`).join('')}</select>
                             <select data-todo-field="${t.id}:priority" class="px-1.5 py-0.5 rounded-lg doodle-card font-bold">
                               ${['高','中','低'].map(p=>`<option value="${p}" ${(t.priority||'中')===p?'selected':''}>${p}優先</option>`).join('')}
                             </select>
@@ -6407,14 +6779,71 @@ ${liveContext}
           const targetKcal = state.bodyMetrics.targetKcal || 1345;
           const targetPro = state.bodyMetrics.targetProtein || 110;
 
-          pIcon.textContent = '🧊';
-          pTitle.textContent = `早午晚餐自訂飲食 × 歷史飲食資料庫（${state.currentDietDate || getTodayISO()}）`;
-          pSub.textContent = `跨日自動封存至歷史資料庫 · 今日熱量 ${totKcal} / ${targetKcal} kcal · 蛋白質 ${totPro} / ${targetPro} g`;
+          const waterMl = Math.round(Number(state.bodyMetrics.waterCups || 0) * 250);
+          const targetWaterMl = Number(state.bodyMetrics.targetWaterMl || 2500);
+          const waterPct = Math.min(100, Math.round((waterMl / Math.max(1, targetWaterMl)) * 100));
+          // SVG Cup Water Geometry: cup inner y goes from 40 (top) to 148 (bottom), height = 108
+          const cupFillH = Math.round((waterPct / 100) * 108);
+          const cupFillY = 148 - cupFillH;
+
+          const todayStr = getTodayISO();
+          const todayCafLogs = (state.caffeineLogs || []).filter(l => l.date === todayStr);
+          const totalMg = todayCafLogs.reduce((s, l) => s + Number(l.mg || 0), 0);
+          const limitMg = Number(state.caffeineLimitMg || 200);
+          const pctMg = Math.min(100, Math.round((totalMg / Math.max(1, limitMg)) * 100));
+
+          pIcon.textContent = '🍽️';
+          pTitle.textContent = `每日三餐・💧可愛水杯飲水・☕咖啡因整合中心（${state.currentDietDate || todayStr}）`;
+          pSub.textContent = `飲水 ${waterMl}/${targetWaterMl}ml (${waterPct}%) · 咖啡因 ${totalMg}/${limitMg}mg · 熱量 ${totKcal}/${targetKcal} kcal · 每日自動歸零封存`;
           pTabs.innerHTML = `
-            <button type="button" data-f-tab="today" class="px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap ${state.fridgeSubTab==='today'?'bg-[#2B2523] text-white':'doodle-subtle'}">🍽️ 今日早午晚餐輸入</button>
+            <button type="button" data-f-tab="today" class="px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap ${state.fridgeSubTab==='today'?'bg-[#2B2523] text-white':'doodle-subtle'}">💧 飲水水杯・咖啡因・今日三餐</button>
+            <button type="button" data-f-tab="caffeine_menu" class="px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap ${state.fridgeSubTab==='caffeine_menu'?'bg-[#2B2523] text-white':'doodle-subtle'}">☕ 茶飲/咖啡因品項編輯 (${(state.caffeineMenu||[]).length})</button>
             <button type="button" data-f-tab="history" class="px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap ${state.fridgeSubTab==='history'?'bg-[#2B2523] text-white':'doodle-subtle'}">📚 歷史飲食資料庫 (${state.dietHistory.length}天)</button>
-            <button type="button" id="archive-meals-btn" class="px-3 py-1 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] text-xs font-bold whitespace-nowrap">💾 結算今日並存入資料庫</button>
+            <button type="button" id="archive-meals-btn" class="px-3 py-1 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] text-xs font-bold whitespace-nowrap">💾 結算今日並歸零重置</button>
           `;
+
+          if (state.fridgeSubTab === 'caffeine_menu') {
+            pBody.innerHTML = `
+              <div class="space-y-4 text-xs sm:text-sm">
+                <div class="p-4 rounded-3xl doodle-subtle flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <div class="font-bold text-sm">🍵 我的茶飲與咖啡因品項管理（可直接修改名稱、容量 ml 與咖啡因 mg）</div>
+                    <div class="text-xs" style="color:var(--text-muted)">點選「+ 喝一杯」即刻計入今日咖啡因與飲水參考，守護 00:30 睡眠品質</div>
+                  </div>
+                  <button type="button" id="add-caf-menu-btn" class="px-3.5 py-1.5 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] text-xs font-bold whitespace-nowrap">+ 新增常用茶飲/飲品</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+                  ${(state.caffeineMenu || []).map(item => `
+                    <div class="p-4 rounded-3xl doodle-card space-y-2.5">
+                      <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-1.5 flex-1 min-w-0">
+                          <input type="text" data-caf-str="${item.id}:icon" value="${esc(item.icon||'🍵')}" class="w-8 h-8 text-center rounded-xl doodle-subtle text-base shrink-0" />
+                          <input type="text" data-caf-str="${item.id}:name" value="${esc(item.name)}" class="font-bold text-sm bg-transparent border-b border-stone-400/40 w-full" />
+                        </div>
+                        <button type="button" data-del-caf-menu="${item.id}" class="text-rose-600 font-bold">✕</button>
+                      </div>
+                      <div class="flex items-center justify-between gap-2 text-xs">
+                        <label class="flex items-center gap-1 font-bold"><span>⚡ 咖啡因：</span><input type="number" min="0" data-caf-num="${item.id}:mg" value="${item.mg}" class="w-14 text-center px-1 py-0.5 rounded doodle-subtle font-bold" /><span>mg</span></label>
+                        <label class="flex items-center gap-1 font-bold"><span>💧 容量：</span><input type="number" min="0" data-caf-num="${item.id}:ml" value="${item.ml}" class="w-14 text-center px-1 py-0.5 rounded doodle-subtle font-bold" /><span>ml</span></label>
+                      </div>
+                      <input type="text" data-caf-str="${item.id}:note" value="${esc(item.note||'')}" class="w-full text-[11px] bg-transparent" style="color:var(--text-muted)" placeholder="備註..." />
+                      <button type="button" data-log-caf="${item.id}" class="w-full py-2 rounded-xl bg-[#D8ECE2] hover:bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">+ 喝一杯（+${item.mg}mg）</button>
+                    </div>
+                  `).join('')}
+                </div>
+                <div class="p-4 rounded-3xl doodle-subtle space-y-2">
+                  <div class="font-bold text-sm">📜 今日飲用紀錄 (${todayCafLogs.length} 杯)</div>
+                  ${todayCafLogs.length ? todayCafLogs.map(cl => `
+                    <div class="p-2.5 rounded-xl doodle-card flex items-center justify-between text-xs">
+                      <span><strong>${esc(cl.time)}</strong> · ${esc(cl.name)}（<strong>${cl.mg} mg</strong> / ${cl.ml} ml）</span>
+                      <button type="button" data-del-caf-log="${cl.id}" class="text-rose-600 font-bold">✕</button>
+                    </div>
+                  `).join('') : '<div class="text-xs opacity-70">今日尚未飲用含咖啡因飲品 🌿</div>'}
+                </div>
+              </div>
+            `;
+            return;
+          }
 
           if (state.fridgeSubTab === 'history') {
             pBody.innerHTML = `
@@ -6438,75 +6867,175 @@ ${liveContext}
                             <button type="button" data-del-dh="${hIdx}" class="px-2 py-0.5 rounded-lg bg-rose-500/15 text-rose-600 font-bold">🗑️ 刪除</button>
                           </div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                           ${(h.meals || []).map((m, mIdx) => `
-                            <div class="p-3 rounded-2xl doodle-card space-y-1">
-                              <div class="flex justify-between font-bold">
-                                <span>${esc(m.meal)}</span>
-                                <span><input type="number" data-dh-meal-kcal="${hIdx}:${mIdx}" value="${m.kcal||0}" class="w-14 text-right bg-transparent font-bold" /> kcal</span>
+                            <div class="p-2.5 rounded-xl doodle-card space-y-1">
+                              <div class="font-bold flex justify-between"><span>${esc(m.meal)}</span><span>${m.kcal} kcal / ${m.protein}g P</span></div>
+                              <input type="text" data-dh-meal="${hIdx}:${mIdx}:items" value="${esc(m.items)}" class="w-full text-[11px] bg-transparent border-b border-stone-400/30" />
+                              <div class="flex gap-1.5 text-[10px]">
+                                <label>熱量<input type="number" data-dh-meal-num="${hIdx}:${mIdx}:kcal" value="${m.kcal}" class="w-12 text-center rounded doodle-subtle font-bold ml-1" /></label>
+                                <label>蛋白<input type="number" data-dh-meal-num="${hIdx}:${mIdx}:protein" value="${m.protein}" class="w-10 text-center rounded doodle-subtle font-bold ml-1" /></label>
                               </div>
-                              <input type="text" data-dh-meal-items="${hIdx}:${mIdx}" value="${esc(m.items)}" class="w-full text-xs bg-transparent border-b border-stone-300/50" />
                             </div>
                           `).join('')}
                         </div>
                       </div>
                     `).join('')}
                   </div>
-                ` : '<div class="p-8 text-center rounded-2xl doodle-subtle">目前尚無歷史飲食紀錄，過午夜 00:00 或點擊右上角「💾 結算今日並存入資料庫」即會自動歸檔！</div>'}
+                ` : '<div class="p-6 text-center doodle-subtle rounded-2xl">尚無歷史飲食紀錄，填寫今日三餐並點擊「結算今日並歸零重置」即可保存！</div>'}
               </div>
             `;
             return;
           }
 
+          // DEFAULT TAB: UNIFIED WATER CUP + CAFFEINE + 3 MEALS
           pBody.innerHTML = `
-            <div class="space-y-4 text-xs">
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                <div class="p-3 rounded-2xl doodle-subtle">
-                  <div>🔥 今日熱量 (${state.currentDietDate})</div>
-                  <div class="text-lg font-bold mt-0.5">${totKcal} <span class="text-xs font-normal">/ ${targetKcal} kcal</span></div>
-                  <div class="h-1.5 rounded-full bg-black/10 mt-1.5 overflow-hidden"><div class="h-full bg-[#06D6A0]" style="width:${Math.min(100,Math.round(totKcal/targetKcal*100))}%"></div></div>
+            <div class="space-y-5 text-xs">
+              <!-- ROW 1: Cute Animated Rising Water Cup + Caffeine Quick Bar -->
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                <!-- Left: Cute Kawaii Water Cup (5 cols) -->
+                <div class="lg:col-span-5 p-4 rounded-3xl bg-[#E0F2FE]/60 border-2 border-[#2B2523] flex flex-col sm:flex-row items-center gap-4">
+                  <div class="relative w-36 h-44 shrink-0 flex items-center justify-center">
+                    <svg viewBox="0 0 140 175" class="w-full h-full drop-shadow-sm">
+                      <defs>
+                        <clipPath id="cuteCupClip">
+                          <path d="M 30 35 L 110 35 L 100 150 Q 98 160 70 160 Q 42 160 40 150 Z" />
+                        </clipPath>
+                      </defs>
+                      <!-- Cup Handle -->
+                      <path d="M 108 58 Q 132 58 130 90 Q 128 118 104 115" fill="none" stroke="#2B2523" stroke-width="5" stroke-linecap="round"/>
+                      <!-- Cup Background -->
+                      <path d="M 30 35 L 110 35 L 100 150 Q 98 160 70 160 Q 42 160 40 150 Z" fill="#FFFDF8" />
+                      <!-- Animated Rising Water -->
+                      <g clip-path="url(#cuteCupClip)">
+                        <rect x="20" y="${cupFillY}" width="100" height="${cupFillH + 20}" fill="#7DD3FC" style="transition: all 0.5s ease;" />
+                        ${waterPct > 0 ? `<ellipse cx="70" cy="${cupFillY}" rx="42" ry="5" fill="#BAE6FD" style="transition: all 0.5s ease;" />` : ''}
+                        ${waterPct >= 20 ? `<circle cx="52" cy="${Math.min(145, cupFillY + 18)}" r="3.5" fill="#FFFDF8" opacity="0.75" />` : ''}
+                        ${waterPct >= 50 ? `<circle cx="85" cy="${Math.min(145, cupFillY + 30)}" r="4.5" fill="#FFFDF8" opacity="0.65" />` : ''}
+                        ${waterPct >= 80 ? `<circle cx="66" cy="${Math.min(145, cupFillY + 12)}" r="2.5" fill="#FFFDF8" opacity="0.85" />` : ''}
+                      </g>
+                      <!-- Kawaii Face -->
+                      <circle cx="55" cy="95" r="4" fill="#2B2523" />
+                      <circle cx="85" cy="95" r="4" fill="#2B2523" />
+                      <circle cx="53.5" cy="93.5" r="1.4" fill="#FFFFFF" />
+                      <circle cx="83.5" cy="93.5" r="1.4" fill="#FFFFFF" />
+                      <ellipse cx="47" cy="103" rx="5" ry="3" fill="#FDA4AF" opacity="0.8" />
+                      <ellipse cx="93" cy="103" rx="5" ry="3" fill="#FDA4AF" opacity="0.8" />
+                      <path d="${waterPct >= 100 ? 'M 62 104 Q 70 114 78 104' : waterPct > 0 ? 'M 64 104 Q 70 110 76 104' : 'M 65 106 L 75 106'}" fill="none" stroke="#2B2523" stroke-width="2.5" stroke-linecap="round" />
+                      <!-- Cup Outline & Rim -->
+                      <path d="M 30 35 L 110 35 L 100 150 Q 98 160 70 160 Q 42 160 40 150 Z" fill="none" stroke="#2B2523" stroke-width="4" stroke-linejoin="round" />
+                      <ellipse cx="70" cy="35" rx="40" ry="6" fill="#FFFDF8" stroke="#2B2523" stroke-width="3.5" />
+                    </svg>
+                  </div>
+                  <div class="flex-1 space-y-2.5 text-center sm:text-left">
+                    <div>
+                      <div class="font-bold text-sm">💧 今日飲水小水杯（每日歸零）</div>
+                      <div class="text-2xl font-bold text-sky-900 mt-0.5">${waterMl} <span class="text-xs font-normal">/ ${targetWaterMl} ml (${waterPct}%)</span></div>
+                      <div class="text-[11px]" style="color:var(--text-muted)">${waterPct >= 100 ? '🎉 喝滿 2500ml 達標啦！水噹噹！' : `還差 ${Math.max(0, targetWaterMl - waterMl)} ml 達標，快喝一口水～`}</div>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 justify-center sm:justify-start">
+                      <button type="button" data-water-add="150" class="px-2.5 py-1.5 rounded-xl bg-white hover:bg-[#BAE6FD] border-2 border-[#2B2523] font-bold">+150ml 💧</button>
+                      <button type="button" data-water-add="250" class="px-2.5 py-1.5 rounded-xl bg-[#BAE6FD] hover:bg-[#FBE39C] border-2 border-[#2B2523] font-bold">+250ml 🥤</button>
+                      <button type="button" data-water-add="500" class="px-2.5 py-1.5 rounded-xl bg-[#7DD3FC] hover:bg-[#FBE39C] border-2 border-[#2B2523] font-bold">+500ml 🍶</button>
+                      <button type="button" data-water-add="-250" class="px-2 py-1.5 rounded-xl doodle-subtle font-bold">-250</button>
+                      <button type="button" id="water-reset-zero-btn" class="px-2 py-1.5 rounded-xl bg-rose-100 border border-rose-400 text-rose-700 font-bold">歸零</button>
+                    </div>
+                  </div>
                 </div>
-                <div class="p-3 rounded-2xl doodle-subtle">
-                  <div>🥩 蛋白質</div>
-                  <div class="text-lg font-bold mt-0.5">${totPro} <span class="text-xs font-normal">/ ${targetPro} g</span></div>
-                  <div class="h-1.5 rounded-full bg-black/10 mt-1.5 overflow-hidden"><div class="h-full bg-[#F4A2A8]" style="width:${Math.min(100,Math.round(totPro/targetPro*100))}%"></div></div>
+
+                <!-- Right: Integrated Caffeine & Tea Quick Bar (7 cols) -->
+                <div class="lg:col-span-7 p-4 rounded-3xl bg-[#FBE39C]/45 border-2 border-[#2B2523] flex flex-col justify-between space-y-3">
+                  <div class="space-y-2">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <div class="font-bold text-sm">☕ 今日茶飲與咖啡因控制（守護 00:30 睡眠）</div>
+                      <div class="flex items-center gap-1 font-bold">
+                        <span class="${totalMg>limitMg?'text-rose-600':'text-emerald-800'} text-sm">${totalMg}</span>
+                        <span>/ 上限</span>
+                        <input type="number" id="caf-limit-inp" value="${limitMg}" class="w-14 text-center px-1 py-0.5 rounded-lg doodle-card font-bold" />
+                        <span>mg</span>
+                      </div>
+                    </div>
+                    <div class="h-2.5 rounded-full bg-black/10 overflow-hidden border border-[#2B2523]">
+                      <div class="h-full ${totalMg>limitMg?'bg-rose-500':'bg-[#06D6A0]'} transition-all" style="width:${pctMg}%"></div>
+                    </div>
+                    <div class="text-[11px]" style="color:var(--text-muted)">點擊下方常用茶飲快速紀錄（可至「☕ 茶飲/咖啡因品項編輯」自訂品項與毫克數）：</div>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    ${(state.caffeineMenu || []).map(item => `
+                      <button type="button" data-log-caf="${item.id}" class="px-2.5 py-1.5 rounded-xl doodle-card hover:bg-[#D8ECE2] font-bold text-[11px] flex items-center gap-1">
+                        <span>${esc(item.icon||'🍵')}</span>
+                        <span>${esc(item.name.split('/')[0].trim())}</span>
+                        <span class="px-1.5 py-0.2 rounded-full bg-[#FBE39C] text-[10px]">+${item.mg}mg</span>
+                      </button>
+                    `).join('')}
+                  </div>
+                  ${todayCafLogs.length ? `
+                    <div class="flex flex-wrap items-center gap-1.5 pt-1 border-t border-[#2B2523]/20 text-[11px]">
+                      <span class="font-bold">今日已喝：</span>
+                      ${todayCafLogs.map(cl => `
+                        <span class="px-2 py-0.5 rounded-full bg-white border border-[#2B2523] inline-flex items-center gap-1 font-bold">
+                          ${esc(cl.time)} ${esc(cl.name.slice(0,8))} (${cl.mg}mg)
+                          <button type="button" data-del-caf-log="${cl.id}" class="text-rose-600 ml-0.5">✕</button>
+                        </span>
+                      `).join('')}
+                    </div>
+                  ` : '<div class="text-[11px] opacity-70">今日尚未飲用含咖啡因飲品 🌿</div>'}
                 </div>
-                <div class="p-3 rounded-2xl doodle-subtle col-span-2">
-                  <div class="font-bold mb-1">💊 今日維生素總計 (建議每日 100%)</div>
-                  <div class="grid grid-cols-5 gap-1 text-center">
-                    <div class="p-1 rounded-lg doodle-card"><div class="text-[10px]">維A</div><div class="font-bold">${totA}%</div></div>
-                    <div class="p-1 rounded-lg doodle-card"><div class="text-[10px]">維B</div><div class="font-bold">${totB}%</div></div>
-                    <div class="p-1 rounded-lg doodle-card"><div class="text-[10px]">維C</div><div class="font-bold">${totC}%</div></div>
-                    <div class="p-1 rounded-lg doodle-card"><div class="text-[10px]">維D</div><div class="font-bold">${totD}%</div></div>
-                    <div class="p-1 rounded-lg doodle-card"><div class="text-[10px]">維E</div><div class="font-bold">${totE}%</div></div>
+              </div>
+
+              <!-- ROW 2: Nutrition & Vitamin Summary Bars -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="p-4 rounded-2xl doodle-subtle space-y-2">
+                  <div class="flex justify-between font-bold"><span>🔥 今日熱量與蛋白質目標</span><span>${totKcal} / ${targetKcal} kcal · 蛋白 ${totPro} / ${targetPro} g</span></div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <div>
+                      <div class="text-[10px] mb-0.5">熱量進度 (${Math.min(100,Math.round(totKcal/targetKcal*100))}%)</div>
+                      <div class="h-2.5 rounded-full bg-black/10 overflow-hidden"><div class="h-full ${totKcal>targetKcal?'bg-rose-500':'bg-[#2B593F]'}" style="width:${Math.min(100,Math.round(totKcal/targetKcal*100))}%"></div></div>
+                    </div>
+                    <div>
+                      <div class="text-[10px] mb-0.5">蛋白質進度 (${Math.min(100,Math.round(totPro/targetPro*100))}%)</div>
+                      <div class="h-2.5 rounded-full bg-black/10 overflow-hidden"><div class="h-full bg-[#184E6C]" style="width:${Math.min(100,Math.round(totPro/targetPro*100))}%"></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-4 rounded-2xl doodle-subtle space-y-2">
+                  <div class="font-bold">💊 今日維生素累計攝取率 (RDI %)</div>
+                  <div class="grid grid-cols-5 gap-2 text-center">
+                    ${[['Vit A',totA,'#F9D5D8'],['Vit B',totB,'#FBE39C'],['Vit C',totC,'#D8ECE2'],['Vit D',totD,'#E0F2FE'],['Vit E',totE,'#EDE9FE']].map(([l,v,c])=>`<div class="p-1.5 rounded-xl doodle-card"><div class="text-[10px]">${l}</div><div class="font-bold text-xs">${v}%</div><div class="h-1.5 rounded bg-black/10 mt-1 overflow-hidden"><div class="h-full" style="width:${Math.min(100,v)}%;background:${c}"></div></div></div>`).join('')}
                   </div>
                 </div>
               </div>
 
-              <div class="grid grid-cols-1 lg:grid-cols-3 gap-3.5">
+              <!-- ROW 3: 3-Meal Direct Custom Input Cards -->
+              <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 ${state.diet.map(d => `
-                  <div class="p-4 rounded-3xl doodle-subtle space-y-2.5">
-                    <div class="flex items-center justify-between">
-                      <span class="font-bold text-sm">${d.meal==='早餐'?'🍳 早餐':d.meal==='午餐'?'🍱 午餐':'🥗 晚餐'}</span>
-                      <span class="px-2.5 py-0.5 rounded-full doodle-card font-bold">${d.kcal} kcal</span>
+                  <div class="p-4 rounded-3xl doodle-card space-y-2.5">
+                    <div class="flex items-center justify-between border-b pb-1.5" style="border-color:var(--border-col)">
+                      <span class="font-bold text-base">${d.meal==='早餐'?'🌅 早餐':d.meal==='午餐'?'☀️ 午餐':'🌙 晚餐'}</span>
+                      <span class="px-2 py-0.5 rounded-full doodle-subtle font-bold text-[11px]">${d.kcal} kcal · ${d.protein}g 蛋白</span>
                     </div>
-                    <textarea data-diet-edit="${d.id}:items" rows="2" placeholder="輸入${d.meal}吃了什麼（跨日會自動封存至歷史資料庫並清空）..." class="w-full p-2.5 rounded-xl doodle-card text-xs font-medium">${esc(d.items)}</textarea>
-                    <div class="grid grid-cols-2 gap-2">
-                      <label class="p-2 rounded-xl doodle-card flex justify-between items-center"><span>熱量 kcal</span><input type="number" min="0" data-diet-num="${d.id}:kcal" value="${d.kcal}" class="w-16 text-right font-bold bg-transparent" /></label>
-                      <label class="p-2 rounded-xl doodle-card flex justify-between items-center"><span>蛋白質 g</span><input type="number" min="0" step="0.1" data-diet-num="${d.id}:protein" value="${d.protein||0}" class="w-14 text-right font-bold bg-transparent" /></label>
-                      <label class="p-2 rounded-xl doodle-card flex justify-between items-center"><span>碳水 g</span><input type="number" min="0" step="0.1" data-diet-num="${d.id}:carbs" value="${d.carbs||0}" class="w-14 text-right font-bold bg-transparent" /></label>
-                      <label class="p-2 rounded-xl doodle-card flex justify-between items-center"><span>脂肪 g</span><input type="number" min="0" step="0.1" data-diet-num="${d.id}:fat" value="${d.fat||0}" class="w-14 text-right font-bold bg-transparent" /></label>
+                    <div>
+                      <label class="text-[10px] font-bold block mb-1">📝 自行輸入食物內容：</label>
+                      <textarea rows="2" data-diet-str="${d.id}:items" class="w-full p-2 rounded-xl doodle-subtle text-xs" placeholder="例如：無糖優格 + 茶葉蛋 2 顆 + 無糖豆漿">${esc(d.items)}</textarea>
                     </div>
-                    <div class="text-[11px] font-bold pt-1">維生素 (%) 與礦物質 (mg)</div>
-                    <div class="grid grid-cols-4 gap-1.5 text-[11px]">
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>維A%</div><input type="number" min="0" data-diet-num="${d.id}:vitA" value="${d.vitA}" class="w-full text-center font-bold bg-transparent" /></label>
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>維B%</div><input type="number" min="0" data-diet-num="${d.id}:vitB" value="${d.vitB}" class="w-full text-center font-bold bg-transparent" /></label>
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>維C%</div><input type="number" min="0" data-diet-num="${d.id}:vitC" value="${d.vitC}" class="w-full text-center font-bold bg-transparent" /></label>
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>維D%</div><input type="number" min="0" data-diet-num="${d.id}:vitD" value="${d.vitD}" class="w-full text-center font-bold bg-transparent" /></label>
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>維E%</div><input type="number" min="0" data-diet-num="${d.id}:vitE" value="${d.vitE}" class="w-full text-center font-bold bg-transparent" /></label>
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>纖維g</div><input type="number" min="0" step="0.1" data-diet-num="${d.id}:fiber" value="${d.fiber||0}" class="w-full text-center font-bold bg-transparent" /></label>
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>鈣mg</div><input type="number" min="0" data-diet-num="${d.id}:ca" value="${d.ca||0}" class="w-full text-center font-bold bg-transparent" /></label>
-                      <label class="p-1.5 rounded-lg doodle-card text-center"><div>鐵mg</div><input type="number" min="0" step="0.1" data-diet-num="${d.id}:fe" value="${d.fe||0}" class="w-full text-center font-bold bg-transparent" /></label>
+                    <div class="grid grid-cols-4 gap-1.5 text-center">
+                      <label class="p-1.5 rounded-xl doodle-subtle"><span class="text-[10px] block">熱量(kcal)</span><input type="number" data-diet-num="${d.id}:kcal" value="${d.kcal}" class="w-full text-center font-bold bg-transparent" /></label>
+                      <label class="p-1.5 rounded-xl doodle-subtle"><span class="text-[10px] block">蛋白(g)</span><input type="number" data-diet-num="${d.id}:protein" value="${d.protein}" class="w-full text-center font-bold bg-transparent" /></label>
+                      <label class="p-1.5 rounded-xl doodle-subtle"><span class="text-[10px] block">碳水(g)</span><input type="number" data-diet-num="${d.id}:carbs" value="${d.carbs}" class="w-full text-center font-bold bg-transparent" /></label>
+                      <label class="p-1.5 rounded-xl doodle-subtle"><span class="text-[10px] block">脂肪(g)</span><input type="number" data-diet-num="${d.id}:fat" value="${d.fat}" class="w-full text-center font-bold bg-transparent" /></label>
+                    </div>
+                    <div class="p-2.5 rounded-2xl doodle-subtle space-y-1.5">
+                      <div class="text-[10px] font-bold">💊 自行填入該餐維生素 & 礦物質 (% / mg)：</div>
+                      <div class="grid grid-cols-4 gap-1 text-center text-[10px]">
+                        <label>Vit A%<input type="number" data-diet-num="${d.id}:vitA" value="${d.vitA||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                        <label>Vit B%<input type="number" data-diet-num="${d.id}:vitB" value="${d.vitB||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                        <label>Vit C%<input type="number" data-diet-num="${d.id}:vitC" value="${d.vitC||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                        <label>Vit D%<input type="number" data-diet-num="${d.id}:vitD" value="${d.vitD||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                        <label>Vit E%<input type="number" data-diet-num="${d.id}:vitE" value="${d.vitE||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                        <label>鈣(mg)<input type="number" data-diet-num="${d.id}:ca" value="${d.ca||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                        <label>鐵(mg)<input type="number" data-diet-num="${d.id}:fe" value="${d.fe||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                        <label>纖維(g)<input type="number" data-diet-num="${d.id}:fiber" value="${d.fiber||0}" class="w-full text-center rounded doodle-card font-bold" /></label>
+                      </div>
                     </div>
                   </div>
                 `).join('')}
@@ -6517,9 +7046,9 @@ ${liveContext}
         }
 
         // =========================================================================
-        // 3. ACADEMIC GRADES & TRANSCRIPT (114-1 to 115-1 ONLY, FULL ADD/EDIT/DELETE)
+        // 3. COURSE TRANSCRIPT & GRADE PLANNER (📖 成績單)
         // =========================================================================
-        if (state.activePage === 'study' || state.activePage === 'grad_goal') {
+                if (state.activePage === 'study' || state.activePage === 'grad_goal') {
           const st = computeTranscriptStats();
           pIcon.textContent = state.activePage === 'grad_goal' ? '🏆' : '📖';
           pTitle.textContent = '專屬成績規劃中心（已匯入 114-1 至大二上真實成績・班排 1/43）';
@@ -7457,104 +7986,6 @@ ${liveContext}
         // =========================================================================
         // 9. CUSTOMIZABLE CAFFEINE & TEA TRACKER (☕ 桌上熱茶・自訂茶飲與咖啡因含量 mg)
         // =========================================================================
-        if (state.activePage === 'caffeine_tracker') {
-          const todayStr = getTodayISO();
-          const todayLogs = (state.caffeineLogs || []).filter(l => l.date === todayStr);
-          const totalMg = todayLogs.reduce((s, l) => s + Number(l.mg || 0), 0);
-          const limitMg = Number(state.caffeineLimitMg || 200);
-          const pctMg = Math.min(100, Math.round((totalMg / Math.max(1, limitMg)) * 100));
-
-          pIcon.textContent = '☕';
-          pTitle.textContent = '每日茶飲與咖啡因含量追蹤器（自訂茶類／咖啡品項 × 毫克 mg 編輯）';
-          pSub.textContent = `今日已攝取咖啡因 ${totalMg} / ${limitMg} mg (${pctMg}%) · 今日飲用 ${todayLogs.length} 杯 · 守護 00:30 睡眠品質`;
-          pTabs.innerHTML = `<button type="button" id="add-caf-menu-btn" class="px-3.5 py-1.5 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] text-xs font-bold whitespace-nowrap">+ 新增常用茶飲/飲品</button>`;
-
-          pBody.innerHTML = `
-            <div class="space-y-5 text-xs sm:text-sm">
-              <!-- Top Caffeine Meter -->
-              <div class="p-4 rounded-3xl doodle-subtle space-y-2.5">
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                  <div>
-                    <span class="font-bold text-base">🍃 今日咖啡因總攝取量：<span class="${totalMg>limitMg?'text-rose-600':'text-emerald-800'}">${totalMg} mg</span> / 上限 </span>
-                    <input type="number" id="caf-limit-inp" value="${limitMg}" class="w-16 text-center px-1.5 py-0.5 rounded-lg doodle-card font-bold" />
-                    <span class="font-bold"> mg</span>
-                  </div>
-                  <span class="text-xs font-bold ${totalMg>limitMg?'text-rose-600':'text-emerald-700'}">${totalMg>limitMg?'⚠️ 已超過今日建議上限，建議改喝無咖啡因花草茶/溫開水！':'✅ 攝取量在安全範圍內，下午 16:00 後建議選低/無咖啡因茶飲'}</span>
-                </div>
-                <div class="h-3 rounded-full bg-black/10 overflow-hidden border border-[#2B2523]">
-                  <div class="h-full ${totalMg>limitMg?'bg-rose-500':'bg-[#06D6A0]'} transition-all" style="width:${pctMg}%"></div>
-                </div>
-              </div>
-
-              <!-- Editable Drink & Tea Menu Cards (One-click Log + Inline Edit mg/ml/name) -->
-              <div class="space-y-2.5">
-                <div class="flex items-center justify-between">
-                  <span class="font-bold text-sm">🍵 我的常用茶飲與提神飲品庫（可直接修改名稱、容量 ml 與咖啡因含量 mg，點「+ 喝一杯」立即紀錄）</span>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
-                  ${(state.caffeineMenu || []).map(item => `
-                    <div class="p-4 rounded-3xl doodle-card flex flex-col justify-between space-y-2.5">
-                      <div class="space-y-1.5">
-                        <div class="flex items-center justify-between gap-1.5">
-                          <input type="text" data-cmenu-str="${item.id}:icon" value="${esc(item.icon||'🍵')}" class="w-8 h-8 text-center rounded-xl doodle-subtle font-bold shrink-0" />
-                          <input type="text" data-cmenu-str="${item.id}:name" value="${esc(item.name)}" class="font-bold text-sm bg-transparent border-b border-stone-400/40 w-full" />
-                          <button type="button" data-del-cmenu="${item.id}" class="text-rose-600 font-bold">✕</button>
-                        </div>
-                        <input type="text" data-cmenu-str="${item.id}:note" value="${esc(item.note||'')}" class="w-full text-[11px] bg-transparent" style="color:var(--text-muted)" placeholder="備註..." />
-                      </div>
-                      <div class="pt-2 border-t flex flex-wrap items-center justify-between gap-2" style="border-color:var(--border-col)">
-                        <div class="flex items-center gap-1.5 text-xs font-bold">
-                          <span>咖啡因</span>
-                          <input type="number" min="0" data-cmenu-num="${item.id}:mg" value="${item.mg}" class="w-14 text-center px-1 py-0.5 rounded doodle-subtle font-bold text-emerald-800" />
-                          <span>mg ·</span>
-                          <input type="number" min="50" step="50" data-cmenu-num="${item.id}:ml" value="${item.ml||350}" class="w-14 text-center px-1 py-0.5 rounded doodle-subtle font-bold" />
-                          <span>ml</span>
-                        </div>
-                        <button type="button" data-drink-caf="${item.id}" class="px-3 py-1 rounded-xl bg-[#D8ECE2] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs hover:bg-[#FBE39C]">+ 喝一杯</button>
-                      </div>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-
-              <!-- Today & Recent Caffeine Intake Logs -->
-              <div class="space-y-2">
-                <div class="font-bold text-sm">📝 飲用歷史紀錄（可直接修改飲品名稱與咖啡因毫克數）</div>
-                <div class="overflow-x-auto rounded-2xl doodle-card p-2">
-                  <table class="w-full min-w-[540px] text-xs border-collapse">
-                    <thead>
-                      <tr class="doodle-subtle text-left">
-                        <th class="py-2 px-2">日期</th>
-                        <th class="py-2 px-2">時間</th>
-                        <th class="py-2 px-2">飲品名稱</th>
-                        <th class="py-2 px-2 text-right">容量(ml)</th>
-                        <th class="py-2 px-2 text-right">咖啡因(mg)</th>
-                        <th class="py-2 px-2 text-center">刪</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y" style="border-color:var(--border-col)">
-                      ${(state.caffeineLogs || []).map(lg => `
-                        <tr>
-                          <td class="py-2 px-2"><input type="date" data-clog-str="${lg.id}:date" value="${esc(lg.date)}" class="bg-transparent font-bold" /></td>
-                          <td class="py-2 px-2"><input type="time" data-clog-str="${lg.id}:time" value="${esc(lg.time)}" class="bg-transparent font-bold" /></td>
-                          <td class="py-2 px-2"><input type="text" data-clog-str="${lg.id}:name" value="${esc(lg.name)}" class="w-full min-w-[160px] font-bold bg-transparent" /></td>
-                          <td class="py-2 px-2 text-right"><input type="number" data-clog-num="${lg.id}:ml" value="${lg.ml||350}" class="w-16 text-right rounded doodle-subtle px-1 font-bold" /></td>
-                          <td class="py-2 px-2 text-right"><input type="number" data-clog-num="${lg.id}:mg" value="${lg.mg}" class="w-16 text-right rounded doodle-subtle px-1 font-bold text-emerald-800" /> mg</td>
-                          <td class="py-2 px-2 text-center"><button type="button" data-del-clog="${lg.id}" class="text-rose-600 font-bold">✕</button></td>
-                        </tr>
-                      `).join('')}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          `;
-          return;
-        }
-
-        // =========================================================================
-        // 10. EXPANDED MULTI-SPORT & HEART RATE WORKOUT TRACKER (🏃‍♀️ 全方位運動・卡路里・心跳 BPM)
-        // =========================================================================
         if (state.activePage === 'bike') {
           const totKcal = (state.workouts || []).reduce((s,w)=>s+Number(w.kcal||0),0);
           const totMins = (state.workouts || []).reduce((s,w)=>s+Number(w.mins||0),0);
@@ -8227,6 +8658,296 @@ ${liveContext}
           pBody.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs"><div class="p-4 rounded-2xl doodle-subtle"><div class="font-bold">📅 明日首堂課 (${tName})</div><div class="text-base font-bold mt-1">${firstTime} ${esc(firstTitle)}</div><div class="mt-1" style="color:var(--text-muted)">共 ${dayCourses.length} 堂排課</div></div><div class="p-4 rounded-2xl doodle-subtle"><div class="font-bold">⏰ 現在睡可睡多久</div><div class="text-2xl font-bold mt-1">約 ${hrs} 小時</div><div>建議起床：${String(wake.getHours()).padStart(2,'0')}:${String(wake.getMinutes()).padStart(2,'0')}</div></div><div class="p-4 rounded-2xl doodle-subtle"><div class="font-bold">💡 推薦睡眠時數</div><div class="text-base font-bold mt-1">推薦睡滿 ${firstTime==='08:10'?'7.5 小時':'8.0 小時'}</div><div>夜間保養：杏仁酸 / 水楊酸錯開使用</div></div></div>`;
           return;
         }
+        if (state.activePage === 'exams') {
+          const exams = state.exams || [];
+          const curExam = exams.find(x => x.id === state.selectedExamId) || null;
+          const palette = [
+            {hex:'#FBE39C', name:'奶油黃'},
+            {hex:'#D8ECE2', name:'薄荷綠'},
+            {hex:'#E0F2FE', name:'晴空藍'},
+            {hex:'#F9D5D8', name:'櫻花粉'},
+            {hex:'#EDE9FE', name:'薰衣草紫'},
+            {hex:'#FED7AA', name:'蜜桃橘'}
+          ];
+
+          // ---------------- MODE A: DEDICATED SINGLE-EXAM PROFESSIONAL CONSOLE ----------------
+          if (curExam) {
+            const eTab = state.examDetailTab || 'sessions';
+            const todayObj = new Date(getTodayISO() + 'T00:00:00');
+            const exObj = new Date((curExam.examDate || getTodayISO()) + 'T00:00:00');
+            const daysLeft = Math.round((exObj - todayObj) / 86400000);
+            const sess = curExam.reviewSessions || [];
+            const doneSess = sess.filter(s => s.done).length;
+            const totalEstMins = sess.reduce((s, r) => s + Number(r.estMins || 60), 0);
+            const totalSpentMins = sess.reduce((s, r) => s + Number(r.spentMins || 0), 0);
+            const topics = curExam.topics || [];
+            const topicWeightedMastery = topics.length
+              ? Math.round(topics.reduce((s, tp) => s + (Number(tp.mastery || 0) * Number(tp.weight || 0)), 0) / Math.max(1, topics.reduce((s, tp) => s + Number(tp.weight || 0), 0)))
+              : Number(curExam.masteryPct || 0);
+
+            pIcon.textContent = '📝';
+            pTitle.textContent = `${curExam.title}（專屬考試控制台 · 倒數 ${daysLeft >= 0 ? daysLeft + ' 天' : '已結束'}）`;
+            pSub.textContent = `科目：${curExam.subject} · 目標：${curExam.targetScore || '90+'} · 科學頻率：${curExam.reviewFreq || '間隔重複'} · 完成複習輪次 +15💡 / 考完結算 +35💡`;
+
+            pTabs.innerHTML = `
+              <button type="button" id="back-to-exam-hub-btn" class="px-3.5 py-1.5 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] text-xs font-bold whitespace-nowrap">← 返回所有考試總覽</button>
+              <button type="button" data-edet-tab="sessions" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap ${eTab==='sessions'?'bg-[#2B2523] text-white':'doodle-subtle'}">🧠 科學複習輪次控制台 (${doneSess}/${sess.length})</button>
+              <button type="button" data-edet-tab="topics" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap ${eTab==='topics'?'bg-[#2B2523] text-white':'doodle-subtle'}">📚 考科範圍比重與弱點 (${topics.length})</button>
+              <button type="button" data-edet-tab="settings" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap ${eTab==='settings'?'bg-[#2B2523] text-white':'doodle-subtle'}">⚙️ AI 頻率策略與參數調整</button>
+            `;
+
+            const consoleHeaderHtml = `
+              <div class="p-5 rounded-3xl doodle-subtle space-y-4" style="border-left: 12px solid ${curExam.color || '#FBE39C'};">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                  <div class="flex items-center gap-2.5 flex-1 min-w-[240px]">
+                    <select data-ex-str="${curExam.id}:examType" class="px-2.5 py-1.5 rounded-xl doodle-card font-bold text-xs shrink-0">
+                      ${['小考','期中考','期末考','證照考'].map(tp => `<option value="${tp}" ${curExam.examType===tp?'selected':''}>${tp}</option>`).join('')}
+                    </select>
+                    <input type="text" data-ex-str="${curExam.id}:title" value="${esc(curExam.title)}" class="w-full font-bold text-base sm:text-lg bg-transparent border-b border-stone-400/40" />
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <label class="px-3 py-1.5 rounded-2xl doodle-card text-xs font-bold flex items-center gap-1.5">
+                      <span>📅 考試日期：</span>
+                      <input type="date" data-ex-str="${curExam.id}:examDate" value="${esc(curExam.examDate)}" class="bg-transparent font-bold" />
+                      <input type="time" data-ex-str="${curExam.id}:examTime" value="${esc(curExam.examTime||'09:10')}" class="bg-transparent font-bold" />
+                    </label>
+                    <button type="button" data-complete-exam="${curExam.id}" class="px-3.5 py-1.5 rounded-2xl bg-[#06D6A0] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">🎉 考完結算 (+35💡)</button>
+                  </div>
+                </div>
+
+                <!-- 4 KPI Console Cards -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                  <div class="p-3.5 rounded-2xl doodle-card space-y-1">
+                    <div class="text-xs font-bold">⏳ 距離考試倒數</div>
+                    <div class="text-xl font-bold ${daysLeft<=3?'text-rose-600':'text-emerald-800'}">${daysLeft < 0 ? '已過考期' : daysLeft === 0 ? '🔥 今天考試！' : `剩 ${daysLeft} 天`}</div>
+                    <div class="text-[10px]" style="color:var(--text-muted)">目標成績：${esc(curExam.targetScore || '90+')}</div>
+                  </div>
+                  <div class="p-3.5 rounded-2xl doodle-card space-y-1.5">
+                    <div class="flex justify-between text-xs font-bold"><span>📊 考科綜合掌握度</span><span class="text-base text-emerald-800">${topicWeightedMastery}%</span></div>
+                    <div class="h-2.5 rounded-full bg-black/10 overflow-hidden border border-[#2B2523]"><div class="h-full bg-[#06D6A0]" style="width:${topicWeightedMastery}%"></div></div>
+                    <div class="text-[10px]" style="color:var(--text-muted)">依各章節比重與熟練度加權計算</div>
+                  </div>
+                  <div class="p-3.5 rounded-2xl doodle-card space-y-1">
+                    <div class="text-xs font-bold">🧠 科學複習輪次</div>
+                    <div class="text-xl font-bold">${doneSess} / ${sess.length} 輪</div>
+                    <div class="text-[10px]" style="color:var(--text-muted)">每完成一輪獲 +15 💡靈感</div>
+                  </div>
+                  <div class="p-3.5 rounded-2xl doodle-card space-y-1">
+                    <div class="text-xs font-bold">⏱️ 累計投入複習時間</div>
+                    <div class="text-xl font-bold">${totalSpentMins} <span class="text-xs font-normal">/ 預估 ${totalEstMins} 分</span></div>
+                    <div class="text-[10px]" style="color:var(--text-muted)">已自動同步至 Google 直向總日程表</div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            if (eTab === 'topics') {
+              pBody.innerHTML = `
+                <div class="space-y-5 text-xs sm:text-sm">
+                  ${consoleHeaderHtml}
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <h3 class="font-bold text-base">📚 考科章節範圍、配分比重與弱點追蹤</h3>
+                      <p class="text-xs" style="color:var(--text-muted)">調整每個考試範圍的配分占比 (%) 與目前熟練度，系統會自動重算考科綜合掌握度！</p>
+                    </div>
+                    <button type="button" id="add-exam-topic-btn" class="px-3.5 py-1.5 rounded-xl bg-[#D8ECE2] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">+ 新增考科範圍/章節</button>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    ${topics.map((tp, tIdx) => `
+                      <div class="p-4 rounded-3xl doodle-card space-y-2.5">
+                        <div class="flex items-center justify-between gap-2">
+                          <input type="text" data-etop-str="${curExam.id}:${tIdx}:name" value="${esc(tp.name)}" class="font-bold text-sm bg-transparent border-b border-stone-400/40 w-full" />
+                          <button type="button" data-del-etop="${curExam.id}:${tIdx}" class="text-rose-600 font-bold px-2">✕</button>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+                          <label class="flex items-center gap-1 font-bold">
+                            <span>⚖️ 配分比重：</span>
+                            <input type="number" min="0" max="100" data-etop-num="${curExam.id}:${tIdx}:weight" value="${tp.weight}" class="w-14 text-center px-1.5 py-0.5 rounded-lg doodle-subtle font-bold" />
+                            <span>%</span>
+                          </label>
+                          <label class="flex items-center gap-1 font-bold">
+                            <span>📈 目前掌握度：</span>
+                            <input type="number" min="0" max="100" data-etop-num="${curExam.id}:${tIdx}:mastery" value="${tp.mastery}" class="w-14 text-center px-1.5 py-0.5 rounded-lg doodle-subtle font-bold" />
+                            <span>%</span>
+                          </label>
+                        </div>
+                        <div class="h-2 rounded-full bg-black/10 overflow-hidden"><div class="h-full bg-[#06D6A0]" style="width:${Math.min(100,tp.mastery||0)}%"></div></div>
+                        <input type="text" data-etop-str="${curExam.id}:${tIdx}:note" value="${esc(tp.note||'')}" placeholder="記錄易錯題型、公式盲點或考古題筆記..." class="w-full p-2 rounded-xl doodle-subtle text-[11px]" />
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              `;
+              return;
+            }
+
+            if (eTab === 'settings') {
+              pBody.innerHTML = `
+                <div class="space-y-5 text-xs sm:text-sm">
+                  ${consoleHeaderHtml}
+                  <div class="p-5 rounded-3xl doodle-card space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <h3 class="font-bold text-base">⚙️ AI 科學化複習頻率調整 & 考試參數控制台</h3>
+                        <p class="text-xs" style="color:var(--text-muted)">可自由調整科目名稱、目標分數、代表顏色，或讓 AI 依最新剩餘天數重算科學間隔排程</p>
+                      </div>
+                      <button type="button" data-ai-plan-exam="${curExam.id}" class="px-4 py-2 rounded-xl bg-[#EDE9FE] hover:bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✨ AI 依最新剩餘天數重算科學頻率</button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                      <label class="p-3 rounded-2xl doodle-subtle space-y-1 block">
+                        <span class="font-bold">📚 考科名稱</span>
+                        <input type="text" data-ex-str="${curExam.id}:subject" value="${esc(curExam.subject)}" class="w-full px-2 py-1 rounded-lg doodle-card font-bold" />
+                      </label>
+                      <label class="p-3 rounded-2xl doodle-subtle space-y-1 block">
+                        <span class="font-bold">🎯 目標成績 / 題數</span>
+                        <input type="text" data-ex-str="${curExam.id}:targetScore" value="${esc(curExam.targetScore||'')}" class="w-full px-2 py-1 rounded-lg doodle-card font-bold" />
+                      </label>
+                      <label class="p-3 rounded-2xl doodle-subtle space-y-1 block">
+                        <span class="font-bold">🔁 自訂複習頻率標籤</span>
+                        <input type="text" data-ex-str="${curExam.id}:reviewFreq" value="${esc(curExam.reviewFreq||'')}" class="w-full px-2 py-1 rounded-lg doodle-card font-bold" />
+                      </label>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs">
+                      <span class="font-bold">🎨 日程表代表色：</span>
+                      ${palette.map(p => `<button type="button" data-ex-col="${curExam.id}:${p.hex}" title="${p.name}" class="w-6 h-6 rounded-full border-2 border-[#2B2523] ${(curExam.color||'#FBE39C')===p.hex?'scale-125 ring-2 ring-[#2B2523]':''}" style="background-color:${p.hex};"></button>`).join('')}
+                    </div>
+                    <div class="space-y-2 text-xs">
+                      <label class="font-bold block">🔬 AI 科學依據說明（可自行編輯）：</label>
+                      <textarea rows="2" data-ex-str="${curExam.id}:aiFreqReason" class="w-full p-2.5 rounded-2xl doodle-subtle">${esc(curExam.aiFreqReason||'')}</textarea>
+                      <label class="font-bold block">📖 具體怎麼複習（可自行編輯步驟）：</label>
+                      <textarea rows="4" data-ex-str="${curExam.id}:aiMethod" class="w-full p-2.5 rounded-2xl doodle-subtle">${esc(curExam.aiMethod||'')}</textarea>
+                    </div>
+                  </div>
+                </div>
+              `;
+              return;
+            }
+
+            // DEFAULT TAB: SCIENTIFIC REVIEW SESSIONS CONSOLE
+            pBody.innerHTML = `
+              <div class="space-y-5 text-xs sm:text-sm">
+                ${consoleHeaderHtml}
+
+                <!-- AI Scientific Method Card -->
+                <div class="p-4 rounded-3xl doodle-card space-y-2.5">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="font-bold text-sm">🧠 AI 科學複習策略：<span class="px-2.5 py-0.5 rounded-xl bg-[#EDE9FE] border border-[#2B2523] text-[#2B2523]">${esc(curExam.reviewFreq || '間隔重複')}</span></div>
+                    <div class="flex gap-2">
+                      <button type="button" data-ai-plan-exam="${curExam.id}" class="px-3 py-1.5 rounded-xl bg-[#EDE9FE] hover:bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">✨ AI 重算科學排程</button>
+                      <button type="button" data-add-ex-sess="${curExam.id}" class="px-3 py-1.5 rounded-xl bg-[#D8ECE2] border-2 border-[#2B2523] text-[#2B2523] font-bold text-xs">+ 手動新增複習輪次</button>
+                    </div>
+                  </div>
+                  <div class="text-xs leading-relaxed" style="color:var(--text-muted)"><strong>🔬 科學依據：</strong>${esc(curExam.aiFreqReason || '')}</div>
+                  <div class="text-xs leading-relaxed whitespace-pre-line p-3 rounded-2xl doodle-subtle"><strong>📖 怎麼複習（分階段執行步驟）：</strong>
+${esc(curExam.aiMethod || '')}</div>
+                </div>
+
+                <!-- Review Sessions List -->
+                <div class="space-y-3">
+                  <div class="font-bold text-sm">📆 科學間隔複習輪次列表（勾選完成獲 +15💡 · 自動同步顯示於 Google 直向總日程表）</div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    ${sess.map(rs => `
+                      <div class="p-4 rounded-3xl ${rs.done ? 'doodle-subtle opacity-70' : 'doodle-card'} space-y-2.5" style="border-left: 10px solid ${curExam.color || '#FBE39C'};">
+                        <div class="flex items-center justify-between gap-2">
+                          <div class="flex items-center gap-2 flex-1 min-w-0">
+                            <input type="checkbox" data-toggle-ex-sess="${curExam.id}:${rs.id}" ${rs.done?'checked':''} class="w-4 h-4 accent-[#2B2523] shrink-0 cursor-pointer" />
+                            <input type="text" data-ex-sess-str="${curExam.id}:${rs.id}:focus" value="${esc(rs.focus)}" class="font-bold text-xs sm:text-sm bg-transparent border-b border-stone-400/40 w-full ${rs.done?'line-through':''}" />
+                          </div>
+                          <button type="button" data-del-ex-sess="${curExam.id}:${rs.id}" class="text-rose-600 font-bold px-1.5">✕</button>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 text-[11px]">
+                          <div class="flex items-center gap-1.5">
+                            <input type="date" data-ex-sess-str="${curExam.id}:${rs.id}:date" value="${esc(rs.date)}" class="px-2 py-1 rounded-xl doodle-subtle font-bold" />
+                            <input type="time" data-ex-sess-str="${curExam.id}:${rs.id}:time" value="${esc(rs.time||'20:00')}" class="px-2 py-1 rounded-xl doodle-subtle font-bold" />
+                            <label class="px-2 py-1 rounded-xl doodle-subtle font-bold flex items-center gap-1">
+                              <span>預估</span>
+                              <input type="number" min="15" max="360" step="15" data-ex-sess-num="${curExam.id}:${rs.id}:estMins" value="${rs.estMins||60}" class="w-10 text-center bg-transparent font-bold" />
+                              <span>分</span>
+                            </label>
+                          </div>
+                          <div class="flex items-center gap-1.5">
+                            <span class="font-bold">已複習 ${rs.spentMins||0} 分</span>
+                            <button type="button" data-ex-sess-addtime="${curExam.id}:${rs.id}:30" class="px-2 py-0.5 rounded-lg bg-[#D8ECE2] border border-[#2B2523] text-[#2B2523] font-bold">+30分</button>
+                          </div>
+                        </div>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+              </div>
+            `;
+            return;
+          }
+
+          // ---------------- MODE B: EXAMS HUB OVERVIEW (Click any exam to enter Console) ----------------
+          pIcon.textContent = '📝';
+          pTitle.textContent = '考試管理與 AI 科學化複習中心（點擊任一考試進入專屬控制台）';
+          pSub.textContent = '整合小考、期中考、期末考與證照考 · 依艾賓浩斯遺忘曲線（1-2-4-7 間隔重複）排出複習頻率並同步至全景總日程表';
+          pTabs.innerHTML = `
+            <button type="button" id="add-exam-btn" class="px-3.5 py-1.5 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] text-[#2B2523] text-xs font-bold whitespace-nowrap">+ 新增考試（小考/期中/證照）</button>
+            <button type="button" data-jump="home:master_schedule" class="px-3 py-1.5 rounded-xl bg-[#D8ECE2] border-2 border-[#2B2523] text-[#2B2523] text-xs font-bold whitespace-nowrap">🗓️ 查看總日程表複習排程</button>
+          `;
+
+          pBody.innerHTML = `
+            <div class="space-y-5 text-xs">
+              <div class="p-4 rounded-3xl bg-[#EDE9FE]/80 border-2 border-[#2B2523] flex flex-wrap items-center justify-between gap-3">
+                <div class="space-y-1">
+                  <div class="font-bold text-sm">🧠 歡迎來到考試管理總覽！點擊下方任一考試卡片，即可進入「專屬考試專業控制台」</div>
+                  <div style="color:var(--text-muted)">在控制台內可自由調整考科範圍比重、AI 科學複習頻率、複習輪次時段與累計複習時間（所有複習排程皆會自動同步到 Google 直向總日程表）。</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                ${exams.map(ex => {
+                  const curCol = ex.color || '#FBE39C';
+                  const todayObj = new Date(getTodayISO() + 'T00:00:00');
+                  const exObj = new Date((ex.examDate || getTodayISO()) + 'T00:00:00');
+                  const daysLeft = Math.round((exObj - todayObj) / 86400000);
+                  const sess = ex.reviewSessions || [];
+                  const doneSess = sess.filter(s => s.done).length;
+                  const topics = ex.topics || [];
+                  const topicMastery = topics.length
+                    ? Math.round(topics.reduce((s, tp) => s + (Number(tp.mastery || 0) * Number(tp.weight || 0)), 0) / Math.max(1, topics.reduce((s, tp) => s + Number(tp.weight || 0), 0)))
+                    : Number(ex.masteryPct || 0);
+                  return `
+                    <div class="p-5 rounded-3xl doodle-card space-y-3 hover:shadow-lg transition" style="border-left: 12px solid ${curCol};">
+                      <div class="flex items-start justify-between gap-2">
+                        <div class="space-y-1 flex-1 min-w-0">
+                          <div class="flex items-center gap-2 flex-wrap">
+                            <span class="px-2 py-0.5 rounded-full doodle-subtle font-bold text-[10px]">${esc(ex.examType || '小考')}</span>
+                            <span class="px-2 py-0.5 rounded-full ${daysLeft <= 3 ? 'bg-rose-600 text-white' : 'bg-[#FBE39C] text-[#2B2523] border border-[#2B2523]'} font-bold text-[10px]">
+                              ${daysLeft < 0 ? '已過考期' : daysLeft === 0 ? '🔥 今天考試' : `⏳ 倒數 ${daysLeft} 天 (${ex.examDate})`}
+                            </span>
+                          </div>
+                          <div class="font-bold text-base truncate">${esc(ex.title)}</div>
+                          <div class="text-[11px]" style="color:var(--text-muted)">科目：${esc(ex.subject)} · 目標：${esc(ex.targetScore||'90+')}</div>
+                        </div>
+                        <button type="button" data-del-ex="${ex.id}" class="text-rose-600 font-bold px-1.5">✕</button>
+                      </div>
+
+                      <div class="space-y-1">
+                        <div class="flex justify-between font-bold text-[11px]">
+                          <span>📊 掌握度 ${topicMastery}% · 複習輪次 ${doneSess}/${sess.length}</span>
+                          <span>🧠 ${esc(ex.reviewFreq || '科學間隔重複')}</span>
+                        </div>
+                        <div class="h-2.5 rounded-full bg-black/10 overflow-hidden border border-[#2B2523]/40">
+                          <div class="h-full bg-[#06D6A0]" style="width:${topicMastery}%"></div>
+                        </div>
+                      </div>
+
+                      <div class="flex items-center justify-between gap-2 pt-1">
+                        <span class="text-[10px]" style="color:var(--text-muted)">含 ${topics.length} 個考科章節範圍</span>
+                        <button type="button" data-open-exam="${ex.id}" class="px-4 py-1.5 rounded-xl bg-[#2B2523] hover:bg-[#492F64] text-white font-bold text-xs">🔍 進入專屬考試控制台 →</button>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          `;
+          return;
+        }
+        
         if (state.activePage === 'gemini_ai') {
           pIcon.textContent = '🤖';
           pTitle.textContent = 'Gemini AI 智慧書房管家 & 資料連動中樞';
@@ -8261,8 +8982,21 @@ ${liveContext}
           saveState(); renderAll(); return;
         }
         if (obj === 'drink_break') {
-          state.bodyMetrics.waterCups += 1;
-          toast(`💧 喝水 +250ml！今日已喝 ${state.bodyMetrics.waterCups * 250} ml`);
+          state.bodyMetrics.waterCups = +(Number(state.bodyMetrics.waterCups || 0) + 1).toFixed(2);
+          toast(`💧 喝水 +250ml！今日已喝 ${Math.round(state.bodyMetrics.waterCups * 250)} ml`);
+          saveState(); renderAll(); return;
+        }
+        if (obj === 'caffeine_tracker') {
+          state.viewMode = 'page'; state.activePage = 'exams';
+          saveState(); renderAll(); return;
+        }
+        if (obj === 'burnout_check') {
+          state.fridgeSubTab = 'today';
+          state.viewMode = 'page'; state.activePage = 'fridge';
+          saveState(); renderAll(); return;
+        }
+        if (obj === 'exam_bank') {
+          state.viewMode = 'page'; state.activePage = 'exams';
           saveState(); renderAll(); return;
         }
         if (obj === 'classmates') { state.peopleSubTab = 'classmates'; }
@@ -8394,6 +9128,34 @@ ${liveContext}
           const t = state.todos.find(x => x.id === b.dataset.schedDoneTodo);
           if (t) { settleCompletedItem(t.text, '一次性代辦完成結算', 15); state.todos = state.todos.filter(x => x.id !== t.id); saveState(); renderDedicatedPage(); bindEvents(); }
         });
+        document.querySelectorAll('[data-sched-done-exrev]').forEach(b => b.onclick = () => {
+          const [eid, sid] = b.dataset.schedDoneExrev.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          const rs = ex && (ex.reviewSessions || []).find(s => s.id === sid);
+          if (rs && !rs.done) {
+            rs.done = true;
+            rs.rewarded = true;
+            settleCompletedItem(`複習 ${ex.title}：${(rs.focus||'').slice(0,18)}`, '科學複習輪次完成', 15);
+            saveState(); renderDedicatedPage(); bindEvents();
+          }
+        });
+        document.querySelectorAll('[data-sched-done-exam]').forEach(b => b.onclick = () => {
+          const ex = (state.exams || []).find(x => x.id === b.dataset.schedDoneExam);
+          if (ex) {
+            settleCompletedItem(ex.title, `考試完成結算 (${ex.examType||'考試'})`, 35);
+            state.exams = (state.exams || []).filter(x => x.id !== ex.id);
+            if (state.selectedExamId === ex.id) state.selectedExamId = null;
+            saveState(); renderDedicatedPage(); bindEvents();
+          }
+        });
+        document.querySelectorAll('[data-sched-done-ev]').forEach(b => b.onclick = () => {
+          const ev = (state.scheduleEvents || []).find(x => x.id === b.dataset.schedDoneEv);
+          if (ev) {
+            settleCompletedItem(ev.title, '日程事件完成', 10);
+            state.scheduleEvents = (state.scheduleEvents || []).filter(x => x.id !== ev.id);
+            saveState(); renderDedicatedPage(); bindEvents();
+          }
+        });
         document.querySelectorAll('[data-sched-done-proj]').forEach(b => b.onclick = () => {
           const p = state.projectSlides.find(x => x.id === b.dataset.schedDoneProj);
           if (p) { settleCompletedItem(p.title, '專案 100% 完賽結算', 40); state.projectSlides = state.projectSlides.filter(x => x.id !== p.id); saveState(); renderDedicatedPage(); bindEvents(); }
@@ -8429,6 +9191,7 @@ ${liveContext}
           document.getElementById('modal-title').textContent = '🗓️ 新增行程（師長開會 / 朋友出遊 / 獎勵事件）';
           document.getElementById('modal-body').innerHTML = `<form id="mevf" class="space-y-2.5 text-xs">
             <select name="type" class="w-full px-3 py-1.5 rounded-xl doodle-subtle font-bold">
+              <option value="todo">⏰ 作業 / 日常代辦（同步顯示於代辦區域與總日程表）</option>
               <option value="meeting">🧑‍🏫 與老師 / 實驗室 / 專題同學開會</option>
               <option value="hangout">🎡 與朋友出去玩 / 聚餐約會</option>
               <option value="reward">🎁 獎勵事件（看電影 / 放假休息）</option>
@@ -8448,8 +9211,29 @@ ${liveContext}
           ov.classList.remove('hidden');
           document.getElementById('mevf').onsubmit = e => {
             e.preventDefault(); const f = e.target;
-            state.scheduleEvents.push({ id: 'EV' + Date.now(), date: f.date.value, time: f.time.value, endTime: f.endTime ? f.endTime.value : '16:00', type: f.type.value, title: f.title.value, person: f.person.value, location: f.location.value, note: f.note.value });
-            saveState(); ov.classList.add('hidden'); renderDedicatedPage(); bindEvents(); toast('🗓️ 已加入全景總日程表！');
+            if (f.type.value === 'todo') {
+              const sParts = (f.time.value || '14:00').split(':').map(Number);
+              const eParts = (f.endTime && f.endTime.value ? f.endTime.value : '16:00').split(':').map(Number);
+              const calcMins = Math.max(15, (eParts[0]*60 + eParts[1]) - (sParts[0]*60 + sParts[1]));
+              state.todos.unshift({
+                id: 'TD' + Date.now(),
+                text: f.title.value,
+                color: '#D8ECE2',
+                date: f.date.value || getTodayISO(),
+                time: f.time.value || '14:00',
+                estMins: calcMins || 60,
+                hasDeadline: false,
+                dueDate: f.date.value || getTodayISO(),
+                dueTime: '23:59',
+                cat: '作業',
+                priority: '高',
+                done: false
+              });
+              saveState(); ov.classList.add('hidden'); renderDedicatedPage(); bindEvents(); toast('⏰ 已同步加入代辦區域與全景總日程表！');
+            } else {
+              state.scheduleEvents.push({ id: 'EV' + Date.now(), date: f.date.value, time: f.time.value, endTime: f.endTime ? f.endTime.value : '16:00', type: f.type.value, title: f.title.value, person: f.person.value, location: f.location.value, note: f.note.value });
+              saveState(); ov.classList.add('hidden'); renderDedicatedPage(); bindEvents(); toast('🗓️ 已加入全景總日程表！');
+            }
           };
         };
 
@@ -8608,7 +9392,7 @@ ${liveContext}
               </div>
             </div>
             <div class="grid grid-cols-2 gap-2">
-              <input name="cat" id="td-modal-cat" value="課業/實驗室" placeholder="分類" class="px-3 py-1.5 rounded-xl doodle-subtle" />
+              <select name="cat" id="td-modal-cat" class="px-3 py-1.5 rounded-xl doodle-subtle font-bold"><option value="作業" selected>作業</option><option value="日常活動">日常活動</option></select>
               <select name="priority" id="td-modal-pri" class="px-3 py-1.5 rounded-xl doodle-subtle font-bold"><option value="高">高優先</option><option value="中" selected>中優先</option><option value="低">低優先</option></select>
             </div>
             <button type="submit" class="w-full py-2 rounded-xl bg-[#FBE39C] border-2 border-[#2B2523] font-bold">新增並同步至直向總日程表</button>
@@ -9428,6 +10212,196 @@ ${liveContext}
           }
         });
 
+        // Header Exams Button
+        const hExBtn = document.getElementById('header-exams-btn');
+        if (hExBtn) hExBtn.onclick = () => { state.viewMode = 'page'; state.activePage = 'exams'; saveState(); renderAll(); };
+
+        // Cute Water Cup Quick Add & Reset to 0
+        document.querySelectorAll('[data-water-add]').forEach(b => b.onclick = () => {
+          const deltaMl = Number(b.dataset.waterAdd || 0);
+          const curMl = Math.round(Number(state.bodyMetrics.waterCups || 0) * 250);
+          const nextMl = Math.max(0, curMl + deltaMl);
+          state.bodyMetrics.waterCups = +(nextMl / 250).toFixed(2);
+          saveState(); renderDedicatedPage(); bindEvents();
+          toast(deltaMl > 0 ? `💧 喝水 +${deltaMl}ml！目前累積 ${nextMl} ml` : `已調整目前飲水為 ${nextMl} ml`);
+        });
+        const wResetZero = document.getElementById('water-reset-zero-btn');
+        if (wResetZero) wResetZero.onclick = () => {
+          state.bodyMetrics.waterCups = 0;
+          saveState(); renderDedicatedPage(); bindEvents();
+          toast('🔄 今日飲水量已重設為 0 ml！');
+        };
+
+        // Exams Hub <-> Dedicated Console Navigation & Topic Controls
+        document.querySelectorAll('[data-open-exam]').forEach(b => b.onclick = () => {
+          state.selectedExamId = b.dataset.openExam;
+          state.examDetailTab = 'sessions';
+          saveState(); renderDedicatedPage(); bindEvents();
+        });
+        const backExHubBtn = document.getElementById('back-to-exam-hub-btn');
+        if (backExHubBtn) backExHubBtn.onclick = () => {
+          state.selectedExamId = null;
+          saveState(); renderDedicatedPage(); bindEvents();
+        };
+        document.querySelectorAll('[data-edet-tab]').forEach(b => b.onclick = () => {
+          state.examDetailTab = b.dataset.edetTab;
+          saveState(); renderDedicatedPage(); bindEvents();
+        });
+        document.querySelectorAll('[data-etop-str]').forEach(inp => inp.onchange = () => {
+          const [eid, idx, f] = inp.dataset.etopStr.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          if (ex && ex.topics && ex.topics[Number(idx)]) { ex.topics[Number(idx)][f] = inp.value; saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        document.querySelectorAll('[data-etop-num]').forEach(inp => inp.onchange = () => {
+          const [eid, idx, f] = inp.dataset.etopNum.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          if (ex && ex.topics && ex.topics[Number(idx)]) { ex.topics[Number(idx)][f] = Number(inp.value); saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        document.querySelectorAll('[data-del-etop]').forEach(b => b.onclick = () => {
+          const [eid, idx] = b.dataset.delEtop.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          if (ex && ex.topics) { ex.topics.splice(Number(idx), 1); saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        const addEtopBtn = document.getElementById('add-exam-topic-btn');
+        if (addEtopBtn) addEtopBtn.onclick = () => {
+          const ex = (state.exams || []).find(x => x.id === state.selectedExamId);
+          if (ex) {
+            if (!ex.topics) ex.topics = [];
+            ex.topics.push({ id: 'ET' + Date.now(), name: '新增考科範圍／章節重點', weight: 25, mastery: 40, note: '' });
+            saveState(); renderDedicatedPage(); bindEvents();
+          }
+        };
+        document.querySelectorAll('[data-ex-sess-num]').forEach(inp => inp.onchange = () => {
+          const [eid, sid, f] = inp.dataset.exSessNum.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          const rs = ex && (ex.reviewSessions || []).find(s => s.id === sid);
+          if (rs) { rs[f] = Number(inp.value); saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        document.querySelectorAll('[data-ex-sess-addtime]').forEach(b => b.onclick = () => {
+          const [eid, sid, mins] = b.dataset.exSessAddtime.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          const rs = ex && (ex.reviewSessions || []).find(s => s.id === sid);
+          if (rs) { rs.spentMins = Number(rs.spentMins || 0) + Number(mins); saveState(); renderDedicatedPage(); bindEvents(); toast(`⏱️ 已記錄複習時間 +${mins} 分鐘！`); }
+        });
+
+        // Exams & AI Scientific Review Events
+        document.querySelectorAll('[data-ex-str]').forEach(inp => inp.onchange = () => {
+          const [eid, f] = inp.dataset.exStr.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          if (ex) { ex[f] = inp.value; saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        document.querySelectorAll('[data-ex-num]').forEach(inp => inp.onchange = () => {
+          const [eid, f] = inp.dataset.exNum.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          if (ex) { ex[f] = Number(inp.value); saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        document.querySelectorAll('[data-ex-col]').forEach(b => b.onclick = () => {
+          const [eid, hx] = b.dataset.exCol.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          if (ex) { ex.color = hx; saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        document.querySelectorAll('[data-del-ex]').forEach(b => b.onclick = () => {
+          state.exams = (state.exams || []).filter(x => x.id !== b.dataset.delEx);
+          saveState(); renderDedicatedPage(); bindEvents();
+        });
+        document.querySelectorAll('[data-complete-exam]').forEach(b => b.onclick = () => {
+          const ex = (state.exams || []).find(x => x.id === b.dataset.completeExam);
+          if (ex) {
+            settleCompletedItem(ex.title, `考試完成結算 (${ex.examType||'考試'})`, 35);
+            state.exams = (state.exams || []).filter(x => x.id !== ex.id); state.selectedExamId = null;
+            saveState(); renderDedicatedPage(); bindEvents();
+          }
+        });
+        document.querySelectorAll('[data-ai-plan-exam]').forEach(b => b.onclick = () => {
+          const ex = (state.exams || []).find(x => x.id === b.dataset.aiPlanExam);
+          if (ex) {
+            const plan = generateScientificExamPlan(ex);
+            ex.reviewFreq = plan.freqLabel;
+            ex.aiFreqReason = plan.reason;
+            ex.aiMethod = plan.method;
+            ex.reviewSessions = plan.sessions;
+            saveState(); renderDedicatedPage(); bindEvents();
+            toast(`🧠 AI 已依艾賓浩斯間隔曲線為「${ex.title}」排出 ${plan.sessions.length} 輪科學複習排程！`);
+          }
+        });
+        document.querySelectorAll('[data-toggle-ex-sess]').forEach(cb => cb.onchange = () => {
+          const [eid, sid] = cb.dataset.toggleExSess.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          const rs = ex && (ex.reviewSessions || []).find(s => s.id === sid);
+          if (rs) {
+            rs.done = cb.checked;
+            if (rs.done && !rs.rewarded) {
+              rs.rewarded = true;
+              settleCompletedItem(`複習 ${ex.title}：${rs.focus.slice(0,18)}`, '科學複習輪次完成', 15);
+            }
+            saveState(); renderDedicatedPage(); bindEvents();
+          }
+        });
+        document.querySelectorAll('[data-ex-sess-str]').forEach(inp => inp.onchange = () => {
+          const [eid, sid, f] = inp.dataset.exSessStr.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          const rs = ex && (ex.reviewSessions || []).find(s => s.id === sid);
+          if (rs) { rs[f] = inp.value; saveState(); }
+        });
+        document.querySelectorAll('[data-del-ex-sess]').forEach(b => b.onclick = () => {
+          const [eid, sid] = b.dataset.delExSess.split(':');
+          const ex = (state.exams || []).find(x => x.id === eid);
+          if (ex) { ex.reviewSessions = (ex.reviewSessions || []).filter(s => s.id !== sid); saveState(); renderDedicatedPage(); bindEvents(); }
+        });
+        document.querySelectorAll('[data-add-ex-sess]').forEach(b => b.onclick = () => {
+          const ex = (state.exams || []).find(x => x.id === b.dataset.addExSess);
+          if (ex) {
+            if (!ex.reviewSessions) ex.reviewSessions = [];
+            ex.reviewSessions.push({ id: 'RS' + Date.now(), date: getTodayISO(), time: '20:00', estMins: 60, focus: '自訂複習輪次（主動回憶＋錯題演練）', done: false });
+            saveState(); renderDedicatedPage(); bindEvents();
+          }
+        });
+        const addExamBtn = document.getElementById('add-exam-btn');
+        if (addExamBtn) addExamBtn.onclick = () => {
+          const ov = document.getElementById('modal-overlay');
+          document.getElementById('modal-title').textContent = '📝 新增考試＆自動生成 AI 科學複習頻率';
+          document.getElementById('modal-body').innerHTML = `<form id="exf" class="space-y-2.5 text-xs">
+            <div class="grid grid-cols-3 gap-2">
+              <select name="examType" class="px-2 py-2 rounded-xl doodle-subtle font-bold"><option>小考</option><option>期中考</option><option>期末考</option><option>證照考</option></select>
+              <input name="title" placeholder="考試名稱（如：離散數學期中考）" required class="col-span-2 px-3 py-2 rounded-xl doodle-subtle font-bold" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <input name="subject" placeholder="科目（如：離散數學）" required class="px-3 py-2 rounded-xl doodle-subtle font-bold" />
+              <input name="targetScore" placeholder="目標分數（如：92 分）" value="90 分" class="px-3 py-2 rounded-xl doodle-subtle font-bold" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <label class="font-bold">📅 考試日期<input name="examDate" type="date" value="${getTodayISO()}" required class="w-full px-2 py-1.5 rounded-xl doodle-subtle font-bold mt-1" /></label>
+              <label class="font-bold">⏰ 考試時間<input name="examTime" type="time" value="09:10" class="w-full px-2 py-1.5 rounded-xl doodle-subtle font-bold mt-1" /></label>
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-[#EDE9FE] border-2 border-[#2B2523] font-bold">🧠 新增並請 AI 生成最科學複習計畫</button>
+          </form>`;
+          ov.classList.remove('hidden');
+          document.getElementById('exf').onsubmit = e => {
+            e.preventDefault(); const f = e.target;
+            const newEx = {
+              id: 'EX' + Date.now(),
+              title: f.title.value,
+              examType: f.examType.value,
+              subject: f.subject.value,
+              examDate: f.examDate.value,
+              examTime: f.examTime.value,
+              targetScore: f.targetScore.value,
+              masteryPct: 40,
+              color: '#FBE39C',
+              done: false
+            };
+            const plan = generateScientificExamPlan(newEx);
+            newEx.reviewFreq = plan.freqLabel;
+            newEx.aiFreqReason = plan.reason;
+            newEx.aiMethod = plan.method;
+            newEx.reviewSessions = plan.sessions;
+            if (!state.exams) state.exams = [];
+            state.exams.unshift(newEx);
+            saveState(); ov.classList.add('hidden'); renderDedicatedPage(); bindEvents();
+            toast(`🧠 已新增「${newEx.title}」並生成 AI 科學化間隔複習排程！`);
+          };
+        };
+
         bindGeminiEvents();
 
         const tsSel=document.getElementById('timer-subj-select'); if(tsSel) tsSel.onchange=()=>{timerState.subj=tsSel.value;};
@@ -9445,10 +10419,39 @@ ${liveContext}
         if (now.getSeconds() % 30 === 0) checkOverduePenalties(false);
       }
 
+
+      // Automatic Night-Mode Luminance Contrast Guard
+      function applyNightContrastFix() {
+        if (!document.body.classList.contains('night-mode')) return;
+        const parseRgba = (str) => {
+          const m = String(str || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+          if (!m) return null;
+          return { r: Number(m[1]), g: Number(m[2]), b: Number(m[3]), a: m[4] !== undefined ? Number(m[4]) : 1 };
+        };
+        const pageBg = { r: 24, g: 22, b: 34 };
+        document.querySelectorAll('#page-panel div, #page-panel span, #page-panel td, #page-panel th, #page-panel button, #page-panel a, #page-panel label, #page-panel input, #page-panel select, #page-panel textarea').forEach(el => {
+          const c = parseRgba(getComputedStyle(el).backgroundColor);
+          if (!c || c.a === 0) return;
+          const er = c.r * c.a + pageBg.r * (1 - c.a);
+          const eg = c.g * c.a + pageBg.g * (1 - c.a);
+          const eb = c.b * c.a + pageBg.b * (1 - c.a);
+          const lum = (0.299 * er + 0.587 * eg + 0.114 * eb) / 255;
+          if (lum >= 0.48) {
+            el.style.color = '#2B2523';
+          } else {
+            const fg = parseRgba(getComputedStyle(el).color);
+            if (fg && (0.299 * fg.r + 0.587 * fg.g + 0.114 * fg.b) / 255 < 0.45) {
+              el.style.color = '#FFFFFF';
+            }
+          }
+        });
+      }
+
       function renderAll() {
         renderScene();
         renderDedicatedPage();
         bindEvents();
+        applyNightContrastFix();
       }
 
       document.getElementById('overview-menu-btn').onclick = (e) => { e.stopPropagation(); document.getElementById('overview-dropdown').classList.toggle('hidden'); };
